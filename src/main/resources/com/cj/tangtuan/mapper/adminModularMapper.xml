@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cj.tangtuan.mapper.adminModularMapper" >
-  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.adminModular" >
+<mapper namespace="com.cj.tangtuan.mapper.AdminModularMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.AdminModular" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="page_name" property="pageName" jdbcType="VARCHAR" />
     <result column="page_url" property="pageUrl" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@
     delete from admin_modular
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.cj.tangtuan.entity.adminModular" >
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.AdminModular" >
     insert into admin_modular (id, page_name, page_url, 
       page_type, page_sort, parent_id, 
       spare1, state, create_time
@@ -35,7 +35,7 @@
       #{spare1,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.adminModular" >
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.AdminModular" >
     insert into admin_modular
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -96,7 +96,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.adminModular" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.AdminModular" >
     update admin_modular
     <set >
       <if test="pageName != null" >
@@ -126,7 +126,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.adminModular" >
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.AdminModular" >
     update admin_modular
     set page_name = #{pageName,jdbcType=VARCHAR},
       page_url = #{pageUrl,jdbcType=VARCHAR},
@@ -138,4 +138,54 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <resultMap id="BaseResultMap_AdminModulars" type="com.cj.tangtuan.entity.AdminModulars" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="page_name" property="pageName" jdbcType="VARCHAR" />
+    <result column="page_url" property="pageUrl" jdbcType="VARCHAR" />
+    <result column="page_type" property="pageType" jdbcType="CHAR" />
+    <result column="page_sort" property="pageSort" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="spare1" property="spare1" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <collection property="children" ofType="com.cj.tangtuan.entity.AdminModulars"></collection>
+  </resultMap>
+
+
+  <!--查询系统里所有目录-->
+  <select id="findAllCatalog" resultMap="BaseResultMap_AdminModulars">
+    SELECT
+    am.id,am.page_name,am.page_type,am.page_sort,am.parent_id
+    FROM
+    admin_modular am
+    --      如果是二级目录，可用内连再封装BaseResultMap
+    --     INNER JOIN admin_modular a ON am.`id` = a.`parent_id` AND am.id = 0
+    WHERE
+    am.page_type &gt; '0' AND am.state = '1'
+  </select>
+
+  <!--查询管理员所有的权限资源-->
+  <select id="findAllRoleModular" parameterType="java.util.List" resultMap="BaseResultMap">
+    SELECT
+    am.id,am.page_name,am.page_url,am.page_type,am.page_sort,am.parent_id
+    FROM admin_modular am
+    WHERE
+    am.state = '1'
+    AND
+    am.id IN
+    <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+      #{item}
+    </foreach>
+  </select>
+
+  <!--查询所有的可使用的权限资源-->
+  <select id="findAllRoleModulars" resultMap="BaseResultMap">
+    SELECT
+    am.id,am.page_name,am.page_url,am.page_type,am.page_sort,am.parent_id
+    FROM admin_modular am
+    WHERE
+    am.state = '1'
+  </select>
 </mapper>

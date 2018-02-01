@@ -1,8 +1,8 @@
 package com.cj.tangtuan.mapper;
 
-import com.cj.tangtuan.entity.groupMsg;
+import com.cj.tangtuan.entity.GroupMsg;
 
-public interface groupMsgMapper {
+public interface GroupMsgMapper {
     /**
      *
      * @mbggenerated
@@ -13,29 +13,29 @@ public interface groupMsgMapper {
      *
      * @mbggenerated
      */
-    int insert(groupMsg record);
+    int insert(GroupMsg record);
 
     /**
      *
      * @mbggenerated
      */
-    int insertSelective(groupMsg record);
+    int insertSelective(GroupMsg record);
 
     /**
      *
      * @mbggenerated
      */
-    groupMsg selectByPrimaryKey(Long groupMsgId);
+    GroupMsg selectByPrimaryKey(Long groupMsgId);
 
     /**
      *
      * @mbggenerated
      */
-    int updateByPrimaryKeySelective(groupMsg record);
+    int updateByPrimaryKeySelective(GroupMsg record);
 
     /**
      *
      * @mbggenerated
      */
-    int updateByPrimaryKey(groupMsg record);
+    int updateByPrimaryKey(GroupMsg record);
 }

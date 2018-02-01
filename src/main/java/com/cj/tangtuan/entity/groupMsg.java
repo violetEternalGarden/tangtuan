@@ -2,7 +2,7 @@ package com.cj.tangtuan.entity;
 
 import java.util.Date;
 
-public class groupMsg {
+public class GroupMsg {
     /**
      * 群消息表
      */

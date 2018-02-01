@@ -68,4 +68,36 @@
       modular_id = #{modularId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查询所有的角色资源ID-->
+  <select id="findAllAdminRoleModularModularId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+
+    SELECT
+    arm.modular_id
+    FROM admin_role_modular arm
+    WHERE  arm.role_id = #{roleId}
+  </select>
+
+  <!--根据RoleId检查角色下是否有管理员存在-->
+  <select id="findRoleModular" parameterType="com.cj.tangtuan.entity.AdminRole" resultType="java.lang.Integer">
+    SELECT COUNT(arm.id)
+    FROM admin_role_modular arm
+    WHERE
+    arm.role_id = #{id}
+  </select>
+
+  <!--先删除该角色ID下的所有数据-->
+  <delete id="deleteRoleModular" parameterType="java.util.Map">
+    DELETE FROM admin_role_modular
+    WHERE role_id = #{roleId}
+  </delete>
+
+  <!--再遍历集合新增角色权限-->
+  <insert id="addRoleModular" parameterType="java.util.Map">
+    INSERT INTO admin_role_modular(role_id,modular_id)
+    VALUES
+    <foreach collection="modulars" item="item" index="index" separator=",">
+      (#{roleId},#{item})
+    </foreach>
+  </insert>
 </mapper>

@@ -1,41 +1,39 @@
 package com.cj.tangtuan.mapper;
 
-import com.cj.tangtuan.entity.AdminRoleModular;
 
+import com.cj.tangtuan.entity.AdminRole;
+import com.cj.tangtuan.entity.AdminRoleModular;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Map;
+
+@Repository
+@Mapper
 public interface AdminRoleModularMapper {
-    /**
-     *
-     * @mbggenerated
-     */
     int deleteByPrimaryKey(Integer id);
 
-    /**
-     *
-     * @mbggenerated
-     */
     int insert(AdminRoleModular record);
 
-    /**
-     *
-     * @mbggenerated
-     */
     int insertSelective(AdminRoleModular record);
 
-    /**
-     *
-     * @mbggenerated
-     */
     AdminRoleModular selectByPrimaryKey(Integer id);
 
-    /**
-     *
-     * @mbggenerated
-     */
     int updateByPrimaryKeySelective(AdminRoleModular record);
 
-    /**
-     *
-     * @mbggenerated
-     */
     int updateByPrimaryKey(AdminRoleModular record);
+
+    //根据角色ID查询管理员角色资源列表ID
+    public List findAllAdminRoleModularModularId(Long roleId);
+
+    //根据RoleId检查角色下是否有管理员存在
+    public int findRoleModular(AdminRole adminRole);
+
+
+    //先删除该角色ID下的所有数据
+    public int deleteRoleModular(Map map);
+
+    //再新增传入的数据
+    public int addRoleModular(Map map);
 }

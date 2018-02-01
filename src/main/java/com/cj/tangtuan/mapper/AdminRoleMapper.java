@@ -1,7 +1,14 @@
 package com.cj.tangtuan.mapper;
 
-import com.cj.tangtuan.entity.AdminRole;
 
+import com.cj.tangtuan.entity.AdminRole;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+@Mapper
 public interface AdminRoleMapper {
     /**
      *
@@ -38,4 +45,13 @@ public interface AdminRoleMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(AdminRole record);
+	
+	    //查询此角色是否已存在
+    public AdminRole findRoleName(AdminRole adminRole);
+
+    //删除此角色
+    public int updateRole(AdminRole adminRole);
+
+    //查询正常使用的角色
+    public List<AdminRole> findAllRole(AdminRole adminRole);
 }
