@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.LableMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Lable" >
+    <id column="lable_id" property="lableId" jdbcType="BIGINT" />
+    <result column="lable_name" property="lableName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    lable_id, lable_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from lable
+    where lable_id = #{lableId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from lable
+    where lable_id = #{lableId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Lable" >
+    insert into lable (lable_id, lable_name)
+    values (#{lableId,jdbcType=BIGINT}, #{lableName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Lable" >
+    insert into lable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lableId != null" >
+        lable_id,
+      </if>
+      <if test="lableName != null" >
+        lable_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lableId != null" >
+        #{lableId,jdbcType=BIGINT},
+      </if>
+      <if test="lableName != null" >
+        #{lableName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Lable" >
+    update lable
+    <set >
+      <if test="lableName != null" >
+        lable_name = #{lableName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lable_id = #{lableId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Lable" >
+    update lable
+    set lable_name = #{lableName,jdbcType=VARCHAR}
+    where lable_id = #{lableId,jdbcType=BIGINT}
+  </update>
+</mapper>

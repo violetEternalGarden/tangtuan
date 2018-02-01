@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.ActivityAgreenumMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.ActivityAgreenum" >
+    <id column="activity_agreenum" property="activityAgreenum" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    activity_agreenum, activity_id, user_id, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_agreenum
+    where activity_agreenum = #{activityAgreenum,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity_agreenum
+    where activity_agreenum = #{activityAgreenum,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.ActivityAgreenum" >
+    insert into activity_agreenum (activity_agreenum, activity_id, user_id, 
+      create_time)
+    values (#{activityAgreenum,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.ActivityAgreenum" >
+    insert into activity_agreenum
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activityAgreenum != null" >
+        activity_agreenum,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activityAgreenum != null" >
+        #{activityAgreenum,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.ActivityAgreenum" >
+    update activity_agreenum
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where activity_agreenum = #{activityAgreenum,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.ActivityAgreenum" >
+    update activity_agreenum
+    set activity_id = #{activityId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where activity_agreenum = #{activityAgreenum,jdbcType=BIGINT}
+  </update>
+</mapper>

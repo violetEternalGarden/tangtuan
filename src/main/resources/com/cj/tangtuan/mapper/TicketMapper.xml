@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.TicketMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Ticket" >
+    <id column="ticket_id" property="ticketId" jdbcType="BIGINT" />
+    <result column="use_time" property="useTime" jdbcType="TIMESTAMP" />
+    <result column="ticket_price" property="ticketPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ticket_id, use_time, ticket_price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from ticket
+    where ticket_id = #{ticketId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ticket
+    where ticket_id = #{ticketId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Ticket" >
+    insert into ticket (ticket_id, use_time, ticket_price
+      )
+    values (#{ticketId,jdbcType=BIGINT}, #{useTime,jdbcType=TIMESTAMP}, #{ticketPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Ticket" >
+    insert into ticket
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ticketId != null" >
+        ticket_id,
+      </if>
+      <if test="useTime != null" >
+        use_time,
+      </if>
+      <if test="ticketPrice != null" >
+        ticket_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ticketId != null" >
+        #{ticketId,jdbcType=BIGINT},
+      </if>
+      <if test="useTime != null" >
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ticketPrice != null" >
+        #{ticketPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Ticket" >
+    update ticket
+    <set >
+      <if test="useTime != null" >
+        use_time = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ticketPrice != null" >
+        ticket_price = #{ticketPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ticket_id = #{ticketId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Ticket" >
+    update ticket
+    set use_time = #{useTime,jdbcType=TIMESTAMP},
+      ticket_price = #{ticketPrice,jdbcType=DECIMAL}
+    where ticket_id = #{ticketId,jdbcType=BIGINT}
+  </update>
+</mapper>

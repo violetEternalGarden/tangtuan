@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.RoomMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Room" >
+    <id column="room_id" property="roomId" jdbcType="BIGINT" />
+    <result column="use_time" property="useTime" jdbcType="TIMESTAMP" />
+    <result column="room_price" property="roomPrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    room_id, use_time, room_price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from room
+    where room_id = #{roomId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from room
+    where room_id = #{roomId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Room" >
+    insert into room (room_id, use_time, room_price
+      )
+    values (#{roomId,jdbcType=BIGINT}, #{useTime,jdbcType=TIMESTAMP}, #{roomPrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Room" >
+    insert into room
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roomId != null" >
+        room_id,
+      </if>
+      <if test="useTime != null" >
+        use_time,
+      </if>
+      <if test="roomPrice != null" >
+        room_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roomId != null" >
+        #{roomId,jdbcType=BIGINT},
+      </if>
+      <if test="useTime != null" >
+        #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roomPrice != null" >
+        #{roomPrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Room" >
+    update room
+    <set >
+      <if test="useTime != null" >
+        use_time = #{useTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="roomPrice != null" >
+        room_price = #{roomPrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where room_id = #{roomId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Room" >
+    update room
+    set use_time = #{useTime,jdbcType=TIMESTAMP},
+      room_price = #{roomPrice,jdbcType=DECIMAL}
+    where room_id = #{roomId,jdbcType=BIGINT}
+  </update>
+</mapper>

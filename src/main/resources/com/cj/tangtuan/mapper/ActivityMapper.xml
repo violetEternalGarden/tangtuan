@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.ActivityMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Activity" >
+    <id column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="admin_id" property="adminId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="activity_title" property="activityTitle" jdbcType="VARCHAR" />
+    <result column="activity_content" property="activityContent" jdbcType="VARCHAR" />
+    <result column="activity_cost" property="activityCost" jdbcType="DECIMAL" />
+    <result column="province_id" property="provinceId" jdbcType="CHAR" />
+    <result column="city_id" property="cityId" jdbcType="CHAR" />
+    <result column="area_id" property="areaId" jdbcType="CHAR" />
+    <result column="hot_spring_id" property="hotSpringId" jdbcType="BIGINT" />
+    <result column="activity_address" property="activityAddress" jdbcType="VARCHAR" />
+    <result column="aggregate_address" property="aggregateAddress" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="DECIMAL" />
+    <result column="dimension" property="dimension" jdbcType="DECIMAL" />
+    <result column="activity_guide" property="activityGuide" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="sign_up_end_time" property="signUpEndTime" jdbcType="TIMESTAMP" />
+    <result column="people_num" property="peopleNum" jdbcType="INTEGER" />
+    <result column="activity_sponsor" property="activitySponsor" jdbcType="VARCHAR" />
+    <result column="contact_number" property="contactNumber" jdbcType="VARCHAR" />
+    <result column="comment_count" property="commentCount" jdbcType="INTEGER" />
+    <result column="agreenum_count" property="agreenumCount" jdbcType="INTEGER" />
+    <result column="sing_up_state" property="singUpState" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_time" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="del_type" property="delType" jdbcType="CHAR" />
+    <result column="del_id" property="delId" jdbcType="BIGINT" />
+    <result column="del_reason" property="delReason" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    activity_id, admin_id, user_id, activity_title, activity_content, activity_cost, 
+    province_id, city_id, area_id, hot_spring_id, activity_address, aggregate_address, 
+    longitude, dimension, activity_guide, start_time, end_time, sign_up_end_time, people_num, 
+    activity_sponsor, contact_number, comment_count, agreenum_count, sing_up_state, create_time, 
+    delete_time, del_type, del_id, del_reason, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Activity" >
+    insert into activity (activity_id, admin_id, user_id, 
+      activity_title, activity_content, activity_cost, 
+      province_id, city_id, area_id, 
+      hot_spring_id, activity_address, aggregate_address, 
+      longitude, dimension, activity_guide, 
+      start_time, end_time, sign_up_end_time, 
+      people_num, activity_sponsor, contact_number, 
+      comment_count, agreenum_count, sing_up_state, 
+      create_time, delete_time, del_type, 
+      del_id, del_reason, state
+      )
+    values (#{activityId,jdbcType=BIGINT}, #{adminId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{activityTitle,jdbcType=VARCHAR}, #{activityContent,jdbcType=VARCHAR}, #{activityCost,jdbcType=DECIMAL}, 
+      #{provinceId,jdbcType=CHAR}, #{cityId,jdbcType=CHAR}, #{areaId,jdbcType=CHAR}, 
+      #{hotSpringId,jdbcType=BIGINT}, #{activityAddress,jdbcType=VARCHAR}, #{aggregateAddress,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=DECIMAL}, #{dimension,jdbcType=DECIMAL}, #{activityGuide,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{signUpEndTime,jdbcType=TIMESTAMP}, 
+      #{peopleNum,jdbcType=INTEGER}, #{activitySponsor,jdbcType=VARCHAR}, #{contactNumber,jdbcType=VARCHAR}, 
+      #{commentCount,jdbcType=INTEGER}, #{agreenumCount,jdbcType=INTEGER}, #{singUpState,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{delType,jdbcType=CHAR}, 
+      #{delId,jdbcType=BIGINT}, #{delReason,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Activity" >
+    insert into activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="adminId != null" >
+        admin_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="activityTitle != null" >
+        activity_title,
+      </if>
+      <if test="activityContent != null" >
+        activity_content,
+      </if>
+      <if test="activityCost != null" >
+        activity_cost,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="hotSpringId != null" >
+        hot_spring_id,
+      </if>
+      <if test="activityAddress != null" >
+        activity_address,
+      </if>
+      <if test="aggregateAddress != null" >
+        aggregate_address,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="dimension != null" >
+        dimension,
+      </if>
+      <if test="activityGuide != null" >
+        activity_guide,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="signUpEndTime != null" >
+        sign_up_end_time,
+      </if>
+      <if test="peopleNum != null" >
+        people_num,
+      </if>
+      <if test="activitySponsor != null" >
+        activity_sponsor,
+      </if>
+      <if test="contactNumber != null" >
+        contact_number,
+      </if>
+      <if test="commentCount != null" >
+        comment_count,
+      </if>
+      <if test="agreenumCount != null" >
+        agreenum_count,
+      </if>
+      <if test="singUpState != null" >
+        sing_up_state,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+      <if test="delType != null" >
+        del_type,
+      </if>
+      <if test="delId != null" >
+        del_id,
+      </if>
+      <if test="delReason != null" >
+        del_reason,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="adminId != null" >
+        #{adminId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="activityTitle != null" >
+        #{activityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="activityContent != null" >
+        #{activityContent,jdbcType=VARCHAR},
+      </if>
+      <if test="activityCost != null" >
+        #{activityCost,jdbcType=DECIMAL},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="hotSpringId != null" >
+        #{hotSpringId,jdbcType=BIGINT},
+      </if>
+      <if test="activityAddress != null" >
+        #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="aggregateAddress != null" >
+        #{aggregateAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="dimension != null" >
+        #{dimension,jdbcType=DECIMAL},
+      </if>
+      <if test="activityGuide != null" >
+        #{activityGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signUpEndTime != null" >
+        #{signUpEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="peopleNum != null" >
+        #{peopleNum,jdbcType=INTEGER},
+      </if>
+      <if test="activitySponsor != null" >
+        #{activitySponsor,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null" >
+        #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="commentCount != null" >
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="agreenumCount != null" >
+        #{agreenumCount,jdbcType=INTEGER},
+      </if>
+      <if test="singUpState != null" >
+        #{singUpState,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delType != null" >
+        #{delType,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="delReason != null" >
+        #{delReason,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Activity" >
+    update activity
+    <set >
+      <if test="adminId != null" >
+        admin_id = #{adminId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="activityTitle != null" >
+        activity_title = #{activityTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="activityContent != null" >
+        activity_content = #{activityContent,jdbcType=VARCHAR},
+      </if>
+      <if test="activityCost != null" >
+        activity_cost = #{activityCost,jdbcType=DECIMAL},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="hotSpringId != null" >
+        hot_spring_id = #{hotSpringId,jdbcType=BIGINT},
+      </if>
+      <if test="activityAddress != null" >
+        activity_address = #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="aggregateAddress != null" >
+        aggregate_address = #{aggregateAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="dimension != null" >
+        dimension = #{dimension,jdbcType=DECIMAL},
+      </if>
+      <if test="activityGuide != null" >
+        activity_guide = #{activityGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="signUpEndTime != null" >
+        sign_up_end_time = #{signUpEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="peopleNum != null" >
+        people_num = #{peopleNum,jdbcType=INTEGER},
+      </if>
+      <if test="activitySponsor != null" >
+        activity_sponsor = #{activitySponsor,jdbcType=VARCHAR},
+      </if>
+      <if test="contactNumber != null" >
+        contact_number = #{contactNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="commentCount != null" >
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="agreenumCount != null" >
+        agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      </if>
+      <if test="singUpState != null" >
+        sing_up_state = #{singUpState,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delType != null" >
+        del_type = #{delType,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        del_id = #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="delReason != null" >
+        del_reason = #{delReason,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Activity" >
+    update activity
+    set admin_id = #{adminId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      activity_title = #{activityTitle,jdbcType=VARCHAR},
+      activity_content = #{activityContent,jdbcType=VARCHAR},
+      activity_cost = #{activityCost,jdbcType=DECIMAL},
+      province_id = #{provinceId,jdbcType=CHAR},
+      city_id = #{cityId,jdbcType=CHAR},
+      area_id = #{areaId,jdbcType=CHAR},
+      hot_spring_id = #{hotSpringId,jdbcType=BIGINT},
+      activity_address = #{activityAddress,jdbcType=VARCHAR},
+      aggregate_address = #{aggregateAddress,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      dimension = #{dimension,jdbcType=DECIMAL},
+      activity_guide = #{activityGuide,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      sign_up_end_time = #{signUpEndTime,jdbcType=TIMESTAMP},
+      people_num = #{peopleNum,jdbcType=INTEGER},
+      activity_sponsor = #{activitySponsor,jdbcType=VARCHAR},
+      contact_number = #{contactNumber,jdbcType=VARCHAR},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      sing_up_state = #{singUpState,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      del_type = #{delType,jdbcType=CHAR},
+      del_id = #{delId,jdbcType=BIGINT},
+      del_reason = #{delReason,jdbcType=VARCHAR},
+      state = #{state,jdbcType=CHAR}
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+</mapper>

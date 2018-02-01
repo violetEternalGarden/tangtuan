@@ -1,0 +1,73 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+
+<html>
+<head>
+
+    <title>RSA 加密 demo</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <!--
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/rsa/RSA.js"></script>
+    <script type="text/javascript" src="../js/rsa/BigInt.js"></script>
+    <script type="text/javascript" src="../js/rsa/Barrett.js"></script>
+    <script type="text/javascript" src="../js/rsa/RSA_Stripped.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+
+
+            $("#btn").click(function(){
+                $.ajax({
+                    type:"post",
+                    url:"/rsa/keyPair",
+                    dataType:"json",
+                    success:function(data){
+                        var exponent = data.exponent;
+                        var modulus = data.modulus;
+                        console.log(exponent)
+                        console.log(modulus)
+                        var userNameMark = $("#userNameMark").val();
+                        var pwdMark = $("#pwdMark").val();
+                        if (userNameMark.length != 256) {
+                            setMaxDigits(260);
+                            var publicKey = new RSAKeyPair(exponent, '', modulus);
+                            var userName = encryptedString(publicKey, encodeURIComponent(userNameMark));
+                            $("#userName").val(userName);
+                            $("#userNameMark").attr("disabled","disabled");
+                        }
+                        if (pwdMark.length != 256) {
+                            setMaxDigits(260);
+                            var publicKey = new RSAKeyPair(exponent, '', modulus);
+                            var pwd = encryptedString(publicKey, encodeURIComponent(pwdMark));
+                            $("#pwd").val(pwd);
+                            $("#pwdMark").attr("disabled","disabled");
+                        }
+                        $("#login").submit();
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+<form id="login" name="login" action="/rsa/decryption" method="post">
+    账号：<input type="text" id="userNameMark" name="userNameMark"/>　
+    <input type="hidden" id="userName" name="userName"/>　
+    密码：<input type="password" id="pwdMark" name="pwdMark"/>
+    <input type="hidden" id="pwd" name="pwd"/>　
+    <input id="btn" type="button" value="提 交" />
+</form>
+
+</body>
+</html>

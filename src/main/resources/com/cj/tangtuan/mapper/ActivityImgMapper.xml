@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.ActivityImgMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.ActivityImg" >
+    <id column="ai_id" property="aiId" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="cover_img" property="coverImg" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ai_id, activity_id, img_url, cover_img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_img
+    where ai_id = #{aiId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity_img
+    where ai_id = #{aiId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.ActivityImg" >
+    insert into activity_img (ai_id, activity_id, img_url, 
+      cover_img)
+    values (#{aiId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{imgUrl,jdbcType=VARCHAR}, 
+      #{coverImg,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.ActivityImg" >
+    insert into activity_img
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aiId != null" >
+        ai_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="imgUrl != null" >
+        img_url,
+      </if>
+      <if test="coverImg != null" >
+        cover_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aiId != null" >
+        #{aiId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImg != null" >
+        #{coverImg,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.ActivityImg" >
+    update activity_img
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="imgUrl != null" >
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImg != null" >
+        cover_img = #{coverImg,jdbcType=CHAR},
+      </if>
+    </set>
+    where ai_id = #{aiId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.ActivityImg" >
+    update activity_img
+    set activity_id = #{activityId,jdbcType=BIGINT},
+      img_url = #{imgUrl,jdbcType=VARCHAR},
+      cover_img = #{coverImg,jdbcType=CHAR}
+    where ai_id = #{aiId,jdbcType=BIGINT}
+  </update>
+</mapper>

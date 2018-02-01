@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.GroupMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Group" >
+    <id column="group_id" property="groupId" jdbcType="BIGINT" />
+    <result column="group_num" property="groupNum" jdbcType="BIGINT" />
+    <result column="group_name" property="groupName" jdbcType="BIGINT" />
+    <result column="group_describe" property="groupDescribe" jdbcType="VARCHAR" />
+    <result column="group_background" property="groupBackground" jdbcType="VARCHAR" />
+    <result column="member_num" property="memberNum" jdbcType="INTEGER" />
+    <result column="msg_num" property="msgNum" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="user_nike" property="userNike" jdbcType="VARCHAR" />
+    <result column="user_head" property="userHead" jdbcType="VARCHAR" />
+    <result column="province_id" property="provinceId" jdbcType="CHAR" />
+    <result column="city_id" property="cityId" jdbcType="CHAR" />
+    <result column="area_id" property="areaId" jdbcType="CHAR" />
+    <result column="activity_address" property="activityAddress" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="DECIMAL" />
+    <result column="dimension" property="dimension" jdbcType="DECIMAL" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_time" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="del_type" property="delType" jdbcType="CHAR" />
+    <result column="del_id" property="delId" jdbcType="BIGINT" />
+    <result column="del_reason" property="delReason" jdbcType="VARCHAR" />
+    <result column="auditing_type" property="auditingType" jdbcType="CHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    group_id, group_num, group_name, group_describe, group_background, member_num, msg_num, 
+    user_id, user_nike, user_head, province_id, city_id, area_id, activity_address, longitude, 
+    dimension, create_time, delete_time, del_type, del_id, del_reason, auditing_type, 
+    state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from group
+    where group_id = #{groupId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from group
+    where group_id = #{groupId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Group" >
+    insert into group (group_id, group_num, group_name, 
+      group_describe, group_background, member_num, 
+      msg_num, user_id, user_nike, 
+      user_head, province_id, city_id, 
+      area_id, activity_address, longitude, 
+      dimension, create_time, delete_time, 
+      del_type, del_id, del_reason, 
+      auditing_type, state)
+    values (#{groupId,jdbcType=BIGINT}, #{groupNum,jdbcType=BIGINT}, #{groupName,jdbcType=BIGINT}, 
+      #{groupDescribe,jdbcType=VARCHAR}, #{groupBackground,jdbcType=VARCHAR}, #{memberNum,jdbcType=INTEGER}, 
+      #{msgNum,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, #{userNike,jdbcType=VARCHAR}, 
+      #{userHead,jdbcType=VARCHAR}, #{provinceId,jdbcType=CHAR}, #{cityId,jdbcType=CHAR}, 
+      #{areaId,jdbcType=CHAR}, #{activityAddress,jdbcType=VARCHAR}, #{longitude,jdbcType=DECIMAL}, 
+      #{dimension,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, 
+      #{delType,jdbcType=CHAR}, #{delId,jdbcType=BIGINT}, #{delReason,jdbcType=VARCHAR}, 
+      #{auditingType,jdbcType=CHAR}, #{state,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Group" >
+    insert into group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="groupNum != null" >
+        group_num,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="groupDescribe != null" >
+        group_describe,
+      </if>
+      <if test="groupBackground != null" >
+        group_background,
+      </if>
+      <if test="memberNum != null" >
+        member_num,
+      </if>
+      <if test="msgNum != null" >
+        msg_num,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userNike != null" >
+        user_nike,
+      </if>
+      <if test="userHead != null" >
+        user_head,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="activityAddress != null" >
+        activity_address,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="dimension != null" >
+        dimension,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+      <if test="delType != null" >
+        del_type,
+      </if>
+      <if test="delId != null" >
+        del_id,
+      </if>
+      <if test="delReason != null" >
+        del_reason,
+      </if>
+      <if test="auditingType != null" >
+        auditing_type,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="groupNum != null" >
+        #{groupNum,jdbcType=BIGINT},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=BIGINT},
+      </if>
+      <if test="groupDescribe != null" >
+        #{groupDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="groupBackground != null" >
+        #{groupBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="memberNum != null" >
+        #{memberNum,jdbcType=INTEGER},
+      </if>
+      <if test="msgNum != null" >
+        #{msgNum,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userNike != null" >
+        #{userNike,jdbcType=VARCHAR},
+      </if>
+      <if test="userHead != null" >
+        #{userHead,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="activityAddress != null" >
+        #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="dimension != null" >
+        #{dimension,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delType != null" >
+        #{delType,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="delReason != null" >
+        #{delReason,jdbcType=VARCHAR},
+      </if>
+      <if test="auditingType != null" >
+        #{auditingType,jdbcType=CHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Group" >
+    update group
+    <set >
+      <if test="groupNum != null" >
+        group_num = #{groupNum,jdbcType=BIGINT},
+      </if>
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=BIGINT},
+      </if>
+      <if test="groupDescribe != null" >
+        group_describe = #{groupDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="groupBackground != null" >
+        group_background = #{groupBackground,jdbcType=VARCHAR},
+      </if>
+      <if test="memberNum != null" >
+        member_num = #{memberNum,jdbcType=INTEGER},
+      </if>
+      <if test="msgNum != null" >
+        msg_num = #{msgNum,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userNike != null" >
+        user_nike = #{userNike,jdbcType=VARCHAR},
+      </if>
+      <if test="userHead != null" >
+        user_head = #{userHead,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="activityAddress != null" >
+        activity_address = #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="dimension != null" >
+        dimension = #{dimension,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delType != null" >
+        del_type = #{delType,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        del_id = #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="delReason != null" >
+        del_reason = #{delReason,jdbcType=VARCHAR},
+      </if>
+      <if test="auditingType != null" >
+        auditing_type = #{auditingType,jdbcType=CHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where group_id = #{groupId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Group" >
+    update group
+    set group_num = #{groupNum,jdbcType=BIGINT},
+      group_name = #{groupName,jdbcType=BIGINT},
+      group_describe = #{groupDescribe,jdbcType=VARCHAR},
+      group_background = #{groupBackground,jdbcType=VARCHAR},
+      member_num = #{memberNum,jdbcType=INTEGER},
+      msg_num = #{msgNum,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT},
+      user_nike = #{userNike,jdbcType=VARCHAR},
+      user_head = #{userHead,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=CHAR},
+      city_id = #{cityId,jdbcType=CHAR},
+      area_id = #{areaId,jdbcType=CHAR},
+      activity_address = #{activityAddress,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      dimension = #{dimension,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      del_type = #{delType,jdbcType=CHAR},
+      del_id = #{delId,jdbcType=BIGINT},
+      del_reason = #{delReason,jdbcType=VARCHAR},
+      auditing_type = #{auditingType,jdbcType=CHAR},
+      state = #{state,jdbcType=CHAR}
+    where group_id = #{groupId,jdbcType=BIGINT}
+  </update>
+</mapper>

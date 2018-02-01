@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.ActivityRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.ActivityRelation" >
+    <id column="activity_relation_id" property="activityRelationId" jdbcType="BIGINT" />
+    <result column="activity_id" property="activityId" jdbcType="BIGINT" />
+    <result column="ac_comment_id" property="acCommentId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="ac_commented_id" property="acCommentedId" jdbcType="BIGINT" />
+    <result column="usered_id" property="useredId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    activity_relation_id, activity_id, ac_comment_id, user_id, ac_commented_id, usered_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_relation
+    where activity_relation_id = #{activityRelationId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity_relation
+    where activity_relation_id = #{activityRelationId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.ActivityRelation" >
+    insert into activity_relation (activity_relation_id, activity_id, ac_comment_id, 
+      user_id, ac_commented_id, usered_id
+      )
+    values (#{activityRelationId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT}, #{acCommentId,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{acCommentedId,jdbcType=BIGINT}, #{useredId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.ActivityRelation" >
+    insert into activity_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="activityRelationId != null" >
+        activity_relation_id,
+      </if>
+      <if test="activityId != null" >
+        activity_id,
+      </if>
+      <if test="acCommentId != null" >
+        ac_comment_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="acCommentedId != null" >
+        ac_commented_id,
+      </if>
+      <if test="useredId != null" >
+        usered_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="activityRelationId != null" >
+        #{activityRelationId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="acCommentId != null" >
+        #{acCommentId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="acCommentedId != null" >
+        #{acCommentedId,jdbcType=BIGINT},
+      </if>
+      <if test="useredId != null" >
+        #{useredId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.ActivityRelation" >
+    update activity_relation
+    <set >
+      <if test="activityId != null" >
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="acCommentId != null" >
+        ac_comment_id = #{acCommentId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="acCommentedId != null" >
+        ac_commented_id = #{acCommentedId,jdbcType=BIGINT},
+      </if>
+      <if test="useredId != null" >
+        usered_id = #{useredId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where activity_relation_id = #{activityRelationId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.ActivityRelation" >
+    update activity_relation
+    set activity_id = #{activityId,jdbcType=BIGINT},
+      ac_comment_id = #{acCommentId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      ac_commented_id = #{acCommentedId,jdbcType=BIGINT},
+      usered_id = #{useredId,jdbcType=BIGINT}
+    where activity_relation_id = #{activityRelationId,jdbcType=BIGINT}
+  </update>
+</mapper>

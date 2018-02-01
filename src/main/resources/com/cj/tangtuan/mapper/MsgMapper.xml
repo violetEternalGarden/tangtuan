@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.MsgMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Msg" >
+    <id column="msg_id" property="msgId" jdbcType="BIGINT" />
+    <result column="group_num" property="groupNum" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="commented_count" property="commentedCount" jdbcType="INTEGER" />
+    <result column="transferred_count" property="transferredCount" jdbcType="INTEGER" />
+    <result column="readnum_count" property="readnumCount" jdbcType="INTEGER" />
+    <result column="agreenum_count" property="agreenumCount" jdbcType="INTEGER" />
+    <result column="comment_count" property="commentCount" jdbcType="INTEGER" />
+    <result column="transfer_count" property="transferCount" jdbcType="INTEGER" />
+    <result column="collectnum_count" property="collectnumCount" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_time" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="del_state" property="delState" jdbcType="CHAR" />
+    <result column="del_id" property="delId" jdbcType="BIGINT" />
+    <result column="del_reason" property="delReason" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    msg_id, group_num, user_id, content, type, commented_count, transferred_count, readnum_count, 
+    agreenum_count, comment_count, transfer_count, collectnum_count, create_time, delete_time, 
+    del_state, del_id, del_reason, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from msg
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from msg
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Msg" >
+    insert into msg (msg_id, group_num, user_id, 
+      content, type, commented_count, 
+      transferred_count, readnum_count, agreenum_count, 
+      comment_count, transfer_count, collectnum_count, 
+      create_time, delete_time, del_state, 
+      del_id, del_reason, state
+      )
+    values (#{msgId,jdbcType=BIGINT}, #{groupNum,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{content,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{commentedCount,jdbcType=INTEGER}, 
+      #{transferredCount,jdbcType=INTEGER}, #{readnumCount,jdbcType=INTEGER}, #{agreenumCount,jdbcType=INTEGER}, 
+      #{commentCount,jdbcType=INTEGER}, #{transferCount,jdbcType=INTEGER}, #{collectnumCount,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{delState,jdbcType=CHAR}, 
+      #{delId,jdbcType=BIGINT}, #{delReason,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Msg" >
+    insert into msg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msgId != null" >
+        msg_id,
+      </if>
+      <if test="groupNum != null" >
+        group_num,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="commentedCount != null" >
+        commented_count,
+      </if>
+      <if test="transferredCount != null" >
+        transferred_count,
+      </if>
+      <if test="readnumCount != null" >
+        readnum_count,
+      </if>
+      <if test="agreenumCount != null" >
+        agreenum_count,
+      </if>
+      <if test="commentCount != null" >
+        comment_count,
+      </if>
+      <if test="transferCount != null" >
+        transfer_count,
+      </if>
+      <if test="collectnumCount != null" >
+        collectnum_count,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+      <if test="delState != null" >
+        del_state,
+      </if>
+      <if test="delId != null" >
+        del_id,
+      </if>
+      <if test="delReason != null" >
+        del_reason,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msgId != null" >
+        #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="groupNum != null" >
+        #{groupNum,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="commentedCount != null" >
+        #{commentedCount,jdbcType=INTEGER},
+      </if>
+      <if test="transferredCount != null" >
+        #{transferredCount,jdbcType=INTEGER},
+      </if>
+      <if test="readnumCount != null" >
+        #{readnumCount,jdbcType=INTEGER},
+      </if>
+      <if test="agreenumCount != null" >
+        #{agreenumCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null" >
+        #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="transferCount != null" >
+        #{transferCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectnumCount != null" >
+        #{collectnumCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delState != null" >
+        #{delState,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="delReason != null" >
+        #{delReason,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Msg" >
+    update msg
+    <set >
+      <if test="groupNum != null" >
+        group_num = #{groupNum,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="commentedCount != null" >
+        commented_count = #{commentedCount,jdbcType=INTEGER},
+      </if>
+      <if test="transferredCount != null" >
+        transferred_count = #{transferredCount,jdbcType=INTEGER},
+      </if>
+      <if test="readnumCount != null" >
+        readnum_count = #{readnumCount,jdbcType=INTEGER},
+      </if>
+      <if test="agreenumCount != null" >
+        agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      </if>
+      <if test="commentCount != null" >
+        comment_count = #{commentCount,jdbcType=INTEGER},
+      </if>
+      <if test="transferCount != null" >
+        transfer_count = #{transferCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectnumCount != null" >
+        collectnum_count = #{collectnumCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delState != null" >
+        del_state = #{delState,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        del_id = #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="delReason != null" >
+        del_reason = #{delReason,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Msg" >
+    update msg
+    set group_num = #{groupNum,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      type = #{type,jdbcType=CHAR},
+      commented_count = #{commentedCount,jdbcType=INTEGER},
+      transferred_count = #{transferredCount,jdbcType=INTEGER},
+      readnum_count = #{readnumCount,jdbcType=INTEGER},
+      agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      comment_count = #{commentCount,jdbcType=INTEGER},
+      transfer_count = #{transferCount,jdbcType=INTEGER},
+      collectnum_count = #{collectnumCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_time = #{deleteTime,jdbcType=TIMESTAMP},
+      del_state = #{delState,jdbcType=CHAR},
+      del_id = #{delId,jdbcType=BIGINT},
+      del_reason = #{delReason,jdbcType=VARCHAR},
+      state = #{state,jdbcType=CHAR}
+    where msg_id = #{msgId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.ArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Article" >
+    <id column="article_id" property="articleId" jdbcType="BIGINT" />
+    <result column="hotel_id" property="hotelId" jdbcType="BIGINT" />
+    <result column="article_title" property="articleTitle" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="admin_id" property="adminId" jdbcType="BIGINT" />
+    <result column="browse_count" property="browseCount" jdbcType="INTEGER" />
+    <result column="reply_count" property="replyCount" jdbcType="INTEGER" />
+    <result column="collectnum_count" property="collectnumCount" jdbcType="INTEGER" />
+    <result column="agreenum_count" property="agreenumCount" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_time" property="delTime" jdbcType="TIMESTAMP" />
+    <result column="del_id" property="delId" jdbcType="BIGINT" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.cj.tangtuan.entity.Article" extends="BaseResultMap" >
+    <result column="article_content" property="articleContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    article_id, hotel_id, article_title, user_id, admin_id, browse_count, reply_count, 
+    collectnum_count, agreenum_count, create_time, del_time, del_id, state
+  </sql>
+  <sql id="Blob_Column_List" >
+    article_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from article
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Article" >
+    insert into article (article_id, hotel_id, article_title, 
+      user_id, admin_id, browse_count, 
+      reply_count, collectnum_count, agreenum_count, 
+      create_time, del_time, del_id, 
+      state, article_content)
+    values (#{articleId,jdbcType=BIGINT}, #{hotelId,jdbcType=BIGINT}, #{articleTitle,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{adminId,jdbcType=BIGINT}, #{browseCount,jdbcType=INTEGER}, 
+      #{replyCount,jdbcType=INTEGER}, #{collectnumCount,jdbcType=INTEGER}, #{agreenumCount,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{delTime,jdbcType=TIMESTAMP}, #{delId,jdbcType=BIGINT}, 
+      #{state,jdbcType=CHAR}, #{articleContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Article" >
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="hotelId != null" >
+        hotel_id,
+      </if>
+      <if test="articleTitle != null" >
+        article_title,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="adminId != null" >
+        admin_id,
+      </if>
+      <if test="browseCount != null" >
+        browse_count,
+      </if>
+      <if test="replyCount != null" >
+        reply_count,
+      </if>
+      <if test="collectnumCount != null" >
+        collectnum_count,
+      </if>
+      <if test="agreenumCount != null" >
+        agreenum_count,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delTime != null" >
+        del_time,
+      </if>
+      <if test="delId != null" >
+        del_id,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="articleContent != null" >
+        article_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="hotelId != null" >
+        #{hotelId,jdbcType=BIGINT},
+      </if>
+      <if test="articleTitle != null" >
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="adminId != null" >
+        #{adminId,jdbcType=BIGINT},
+      </if>
+      <if test="browseCount != null" >
+        #{browseCount,jdbcType=INTEGER},
+      </if>
+      <if test="replyCount != null" >
+        #{replyCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectnumCount != null" >
+        #{collectnumCount,jdbcType=INTEGER},
+      </if>
+      <if test="agreenumCount != null" >
+        #{agreenumCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delTime != null" >
+        #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delId != null" >
+        #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="articleContent != null" >
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Article" >
+    update article
+    <set >
+      <if test="hotelId != null" >
+        hotel_id = #{hotelId,jdbcType=BIGINT},
+      </if>
+      <if test="articleTitle != null" >
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="adminId != null" >
+        admin_id = #{adminId,jdbcType=BIGINT},
+      </if>
+      <if test="browseCount != null" >
+        browse_count = #{browseCount,jdbcType=INTEGER},
+      </if>
+      <if test="replyCount != null" >
+        reply_count = #{replyCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectnumCount != null" >
+        collectnum_count = #{collectnumCount,jdbcType=INTEGER},
+      </if>
+      <if test="agreenumCount != null" >
+        agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delTime != null" >
+        del_time = #{delTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delId != null" >
+        del_id = #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+      <if test="articleContent != null" >
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cj.tangtuan.entity.Article" >
+    update article
+    set hotel_id = #{hotelId,jdbcType=BIGINT},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      admin_id = #{adminId,jdbcType=BIGINT},
+      browse_count = #{browseCount,jdbcType=INTEGER},
+      reply_count = #{replyCount,jdbcType=INTEGER},
+      collectnum_count = #{collectnumCount,jdbcType=INTEGER},
+      agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      del_time = #{delTime,jdbcType=TIMESTAMP},
+      del_id = #{delId,jdbcType=BIGINT},
+      state = #{state,jdbcType=CHAR},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Article" >
+    update article
+    set hotel_id = #{hotelId,jdbcType=BIGINT},
+      article_title = #{articleTitle,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      admin_id = #{adminId,jdbcType=BIGINT},
+      browse_count = #{browseCount,jdbcType=INTEGER},
+      reply_count = #{replyCount,jdbcType=INTEGER},
+      collectnum_count = #{collectnumCount,jdbcType=INTEGER},
+      agreenum_count = #{agreenumCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      del_time = #{delTime,jdbcType=TIMESTAMP},
+      del_id = #{delId,jdbcType=BIGINT},
+      state = #{state,jdbcType=CHAR}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+</mapper>

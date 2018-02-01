@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.UserLableMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.UserLable" >
+    <id column="user_lable_id" property="userLableId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="lable_id" property="lableId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_lable_id, user_id, lable_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_lable
+    where user_lable_id = #{userLableId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_lable
+    where user_lable_id = #{userLableId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.UserLable" >
+    insert into user_lable (user_lable_id, user_id, lable_id
+      )
+    values (#{userLableId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{lableId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.UserLable" >
+    insert into user_lable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userLableId != null" >
+        user_lable_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="lableId != null" >
+        lable_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userLableId != null" >
+        #{userLableId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="lableId != null" >
+        #{lableId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.UserLable" >
+    update user_lable
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="lableId != null" >
+        lable_id = #{lableId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where user_lable_id = #{userLableId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.UserLable" >
+    update user_lable
+    set user_id = #{userId,jdbcType=BIGINT},
+      lable_id = #{lableId,jdbcType=BIGINT}
+    where user_lable_id = #{userLableId,jdbcType=BIGINT}
+  </update>
+</mapper>

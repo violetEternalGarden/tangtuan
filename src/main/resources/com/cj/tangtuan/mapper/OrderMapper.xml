@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.Order" >
+    <id column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="order_code" property="orderCode" jdbcType="VARCHAR" />
+    <result column="order_price" property="orderPrice" jdbcType="DECIMAL" />
+    <result column="order_pre_price" property="orderPrePrice" jdbcType="DECIMAL" />
+    <result column="order_old_price" property="orderOldPrice" jdbcType="DECIMAL" />
+    <result column="order_status" property="orderStatus" jdbcType="CHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="pay_time" property="payTime" jdbcType="TIMESTAMP" />
+    <result column="send_express_time" property="sendExpressTime" jdbcType="TIMESTAMP" />
+    <result column="get_goods_time" property="getGoodsTime" jdbcType="TIMESTAMP" />
+    <result column="shopping_addr_id" property="shoppingAddrId" jdbcType="BIGINT" />
+    <result column="province_id" property="provinceId" jdbcType="CHAR" />
+    <result column="city_id" property="cityId" jdbcType="CHAR" />
+    <result column="area_id" property="areaId" jdbcType="CHAR" />
+    <result column="shipping_address" property="shippingAddress" jdbcType="VARCHAR" />
+    <result column="shipping_person" property="shippingPerson" jdbcType="VARCHAR" />
+    <result column="shipping_phone" property="shippingPhone" jdbcType="VARCHAR" />
+    <result column="shipping_mobile" property="shippingMobile" jdbcType="VARCHAR" />
+    <result column="invoice_title" property="invoiceTitle" jdbcType="VARCHAR" />
+    <result column="invoice_content" property="invoiceContent" jdbcType="VARCHAR" />
+    <result column="invoice_type" property="invoiceType" jdbcType="CHAR" />
+    <result column="customer_remark" property="customerRemark" jdbcType="VARCHAR" />
+    <result column="pay_id" property="payId" jdbcType="BIGINT" />
+    <result column="order_integral" property="orderIntegral" jdbcType="BIGINT" />
+    <result column="coupon_no" property="couponNo" jdbcType="VARCHAR" />
+    <result column="evaluate_flag" property="evaluateFlag" jdbcType="CHAR" />
+    <result column="express_price" property="expressPrice" jdbcType="DECIMAL" />
+    <result column="shipping_postcode" property="shippingPostcode" jdbcType="VARCHAR" />
+    <result column="order_cancel_time" property="orderCancelTime" jdbcType="TIMESTAMP" />
+    <result column="order_cancel_remark" property="orderCancelRemark" jdbcType="VARCHAR" />
+    <result column="back_price" property="backPrice" jdbcType="DECIMAL" />
+    <result column="order_line_pay" property="orderLinePay" jdbcType="CHAR" />
+    <result column="order_get_point" property="orderGetPoint" jdbcType="BIGINT" />
+    <result column="point_worth" property="pointWorth" jdbcType="DECIMAL" />
+    <result column="discount_price" property="discountPrice" jdbcType="DECIMAL" />
+    <result column="coupon_price" property="couponPrice" jdbcType="DECIMAL" />
+    <result column="back_order_status" property="backOrderStatus" jdbcType="CHAR" />
+    <result column="finish_time" property="finishTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="del_state" property="delState" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, order_code, order_price, order_pre_price, order_old_price, order_status, 
+    user_id, pay_time, send_express_time, get_goods_time, shopping_addr_id, province_id, 
+    city_id, area_id, shipping_address, shipping_person, shipping_phone, shipping_mobile, 
+    invoice_title, invoice_content, invoice_type, customer_remark, pay_id, order_integral, 
+    coupon_no, evaluate_flag, express_price, shipping_postcode, order_cancel_time, order_cancel_remark, 
+    back_price, order_line_pay, order_get_point, point_worth, discount_price, coupon_price, 
+    back_order_status, finish_time, create_time, del_state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from order
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.Order" >
+    insert into order (order_id, order_code, order_price, 
+      order_pre_price, order_old_price, order_status, 
+      user_id, pay_time, send_express_time, 
+      get_goods_time, shopping_addr_id, province_id, 
+      city_id, area_id, shipping_address, 
+      shipping_person, shipping_phone, shipping_mobile, 
+      invoice_title, invoice_content, invoice_type, 
+      customer_remark, pay_id, order_integral, 
+      coupon_no, evaluate_flag, express_price, 
+      shipping_postcode, order_cancel_time, order_cancel_remark, 
+      back_price, order_line_pay, order_get_point, 
+      point_worth, discount_price, coupon_price, 
+      back_order_status, finish_time, create_time, 
+      del_state)
+    values (#{orderId,jdbcType=BIGINT}, #{orderCode,jdbcType=VARCHAR}, #{orderPrice,jdbcType=DECIMAL}, 
+      #{orderPrePrice,jdbcType=DECIMAL}, #{orderOldPrice,jdbcType=DECIMAL}, #{orderStatus,jdbcType=CHAR}, 
+      #{userId,jdbcType=BIGINT}, #{payTime,jdbcType=TIMESTAMP}, #{sendExpressTime,jdbcType=TIMESTAMP}, 
+      #{getGoodsTime,jdbcType=TIMESTAMP}, #{shoppingAddrId,jdbcType=BIGINT}, #{provinceId,jdbcType=CHAR}, 
+      #{cityId,jdbcType=CHAR}, #{areaId,jdbcType=CHAR}, #{shippingAddress,jdbcType=VARCHAR}, 
+      #{shippingPerson,jdbcType=VARCHAR}, #{shippingPhone,jdbcType=VARCHAR}, #{shippingMobile,jdbcType=VARCHAR}, 
+      #{invoiceTitle,jdbcType=VARCHAR}, #{invoiceContent,jdbcType=VARCHAR}, #{invoiceType,jdbcType=CHAR}, 
+      #{customerRemark,jdbcType=VARCHAR}, #{payId,jdbcType=BIGINT}, #{orderIntegral,jdbcType=BIGINT}, 
+      #{couponNo,jdbcType=VARCHAR}, #{evaluateFlag,jdbcType=CHAR}, #{expressPrice,jdbcType=DECIMAL}, 
+      #{shippingPostcode,jdbcType=VARCHAR}, #{orderCancelTime,jdbcType=TIMESTAMP}, #{orderCancelRemark,jdbcType=VARCHAR}, 
+      #{backPrice,jdbcType=DECIMAL}, #{orderLinePay,jdbcType=CHAR}, #{orderGetPoint,jdbcType=BIGINT}, 
+      #{pointWorth,jdbcType=DECIMAL}, #{discountPrice,jdbcType=DECIMAL}, #{couponPrice,jdbcType=DECIMAL}, 
+      #{backOrderStatus,jdbcType=CHAR}, #{finishTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{delState,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.Order" >
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="orderPrice != null" >
+        order_price,
+      </if>
+      <if test="orderPrePrice != null" >
+        order_pre_price,
+      </if>
+      <if test="orderOldPrice != null" >
+        order_old_price,
+      </if>
+      <if test="orderStatus != null" >
+        order_status,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="sendExpressTime != null" >
+        send_express_time,
+      </if>
+      <if test="getGoodsTime != null" >
+        get_goods_time,
+      </if>
+      <if test="shoppingAddrId != null" >
+        shopping_addr_id,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="shippingAddress != null" >
+        shipping_address,
+      </if>
+      <if test="shippingPerson != null" >
+        shipping_person,
+      </if>
+      <if test="shippingPhone != null" >
+        shipping_phone,
+      </if>
+      <if test="shippingMobile != null" >
+        shipping_mobile,
+      </if>
+      <if test="invoiceTitle != null" >
+        invoice_title,
+      </if>
+      <if test="invoiceContent != null" >
+        invoice_content,
+      </if>
+      <if test="invoiceType != null" >
+        invoice_type,
+      </if>
+      <if test="customerRemark != null" >
+        customer_remark,
+      </if>
+      <if test="payId != null" >
+        pay_id,
+      </if>
+      <if test="orderIntegral != null" >
+        order_integral,
+      </if>
+      <if test="couponNo != null" >
+        coupon_no,
+      </if>
+      <if test="evaluateFlag != null" >
+        evaluate_flag,
+      </if>
+      <if test="expressPrice != null" >
+        express_price,
+      </if>
+      <if test="shippingPostcode != null" >
+        shipping_postcode,
+      </if>
+      <if test="orderCancelTime != null" >
+        order_cancel_time,
+      </if>
+      <if test="orderCancelRemark != null" >
+        order_cancel_remark,
+      </if>
+      <if test="backPrice != null" >
+        back_price,
+      </if>
+      <if test="orderLinePay != null" >
+        order_line_pay,
+      </if>
+      <if test="orderGetPoint != null" >
+        order_get_point,
+      </if>
+      <if test="pointWorth != null" >
+        point_worth,
+      </if>
+      <if test="discountPrice != null" >
+        discount_price,
+      </if>
+      <if test="couponPrice != null" >
+        coupon_price,
+      </if>
+      <if test="backOrderStatus != null" >
+        back_order_status,
+      </if>
+      <if test="finishTime != null" >
+        finish_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="delState != null" >
+        del_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPrice != null" >
+        #{orderPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderPrePrice != null" >
+        #{orderPrePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderOldPrice != null" >
+        #{orderOldPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendExpressTime != null" >
+        #{sendExpressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="getGoodsTime != null" >
+        #{getGoodsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shoppingAddrId != null" >
+        #{shoppingAddrId,jdbcType=BIGINT},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="shippingAddress != null" >
+        #{shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingPerson != null" >
+        #{shippingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingPhone != null" >
+        #{shippingPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingMobile != null" >
+        #{shippingMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTitle != null" >
+        #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null" >
+        #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null" >
+        #{invoiceType,jdbcType=CHAR},
+      </if>
+      <if test="customerRemark != null" >
+        #{customerRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null" >
+        #{payId,jdbcType=BIGINT},
+      </if>
+      <if test="orderIntegral != null" >
+        #{orderIntegral,jdbcType=BIGINT},
+      </if>
+      <if test="couponNo != null" >
+        #{couponNo,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateFlag != null" >
+        #{evaluateFlag,jdbcType=CHAR},
+      </if>
+      <if test="expressPrice != null" >
+        #{expressPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingPostcode != null" >
+        #{shippingPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCancelTime != null" >
+        #{orderCancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderCancelRemark != null" >
+        #{orderCancelRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="backPrice != null" >
+        #{backPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderLinePay != null" >
+        #{orderLinePay,jdbcType=CHAR},
+      </if>
+      <if test="orderGetPoint != null" >
+        #{orderGetPoint,jdbcType=BIGINT},
+      </if>
+      <if test="pointWorth != null" >
+        #{pointWorth,jdbcType=DECIMAL},
+      </if>
+      <if test="discountPrice != null" >
+        #{discountPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="couponPrice != null" >
+        #{couponPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="backOrderStatus != null" >
+        #{backOrderStatus,jdbcType=CHAR},
+      </if>
+      <if test="finishTime != null" >
+        #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delState != null" >
+        #{delState,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.Order" >
+    update order
+    <set >
+      <if test="orderCode != null" >
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderPrice != null" >
+        order_price = #{orderPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderPrePrice != null" >
+        order_pre_price = #{orderPrePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderOldPrice != null" >
+        order_old_price = #{orderOldPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sendExpressTime != null" >
+        send_express_time = #{sendExpressTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="getGoodsTime != null" >
+        get_goods_time = #{getGoodsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shoppingAddrId != null" >
+        shopping_addr_id = #{shoppingAddrId,jdbcType=BIGINT},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="shippingAddress != null" >
+        shipping_address = #{shippingAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingPerson != null" >
+        shipping_person = #{shippingPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingPhone != null" >
+        shipping_phone = #{shippingPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingMobile != null" >
+        shipping_mobile = #{shippingMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTitle != null" >
+        invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceContent != null" >
+        invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null" >
+        invoice_type = #{invoiceType,jdbcType=CHAR},
+      </if>
+      <if test="customerRemark != null" >
+        customer_remark = #{customerRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="payId != null" >
+        pay_id = #{payId,jdbcType=BIGINT},
+      </if>
+      <if test="orderIntegral != null" >
+        order_integral = #{orderIntegral,jdbcType=BIGINT},
+      </if>
+      <if test="couponNo != null" >
+        coupon_no = #{couponNo,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluateFlag != null" >
+        evaluate_flag = #{evaluateFlag,jdbcType=CHAR},
+      </if>
+      <if test="expressPrice != null" >
+        express_price = #{expressPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="shippingPostcode != null" >
+        shipping_postcode = #{shippingPostcode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCancelTime != null" >
+        order_cancel_time = #{orderCancelTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderCancelRemark != null" >
+        order_cancel_remark = #{orderCancelRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="backPrice != null" >
+        back_price = #{backPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderLinePay != null" >
+        order_line_pay = #{orderLinePay,jdbcType=CHAR},
+      </if>
+      <if test="orderGetPoint != null" >
+        order_get_point = #{orderGetPoint,jdbcType=BIGINT},
+      </if>
+      <if test="pointWorth != null" >
+        point_worth = #{pointWorth,jdbcType=DECIMAL},
+      </if>
+      <if test="discountPrice != null" >
+        discount_price = #{discountPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="couponPrice != null" >
+        coupon_price = #{couponPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="backOrderStatus != null" >
+        back_order_status = #{backOrderStatus,jdbcType=CHAR},
+      </if>
+      <if test="finishTime != null" >
+        finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delState != null" >
+        del_state = #{delState,jdbcType=CHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.Order" >
+    update order
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      order_price = #{orderPrice,jdbcType=DECIMAL},
+      order_pre_price = #{orderPrePrice,jdbcType=DECIMAL},
+      order_old_price = #{orderOldPrice,jdbcType=DECIMAL},
+      order_status = #{orderStatus,jdbcType=CHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      send_express_time = #{sendExpressTime,jdbcType=TIMESTAMP},
+      get_goods_time = #{getGoodsTime,jdbcType=TIMESTAMP},
+      shopping_addr_id = #{shoppingAddrId,jdbcType=BIGINT},
+      province_id = #{provinceId,jdbcType=CHAR},
+      city_id = #{cityId,jdbcType=CHAR},
+      area_id = #{areaId,jdbcType=CHAR},
+      shipping_address = #{shippingAddress,jdbcType=VARCHAR},
+      shipping_person = #{shippingPerson,jdbcType=VARCHAR},
+      shipping_phone = #{shippingPhone,jdbcType=VARCHAR},
+      shipping_mobile = #{shippingMobile,jdbcType=VARCHAR},
+      invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      invoice_content = #{invoiceContent,jdbcType=VARCHAR},
+      invoice_type = #{invoiceType,jdbcType=CHAR},
+      customer_remark = #{customerRemark,jdbcType=VARCHAR},
+      pay_id = #{payId,jdbcType=BIGINT},
+      order_integral = #{orderIntegral,jdbcType=BIGINT},
+      coupon_no = #{couponNo,jdbcType=VARCHAR},
+      evaluate_flag = #{evaluateFlag,jdbcType=CHAR},
+      express_price = #{expressPrice,jdbcType=DECIMAL},
+      shipping_postcode = #{shippingPostcode,jdbcType=VARCHAR},
+      order_cancel_time = #{orderCancelTime,jdbcType=TIMESTAMP},
+      order_cancel_remark = #{orderCancelRemark,jdbcType=VARCHAR},
+      back_price = #{backPrice,jdbcType=DECIMAL},
+      order_line_pay = #{orderLinePay,jdbcType=CHAR},
+      order_get_point = #{orderGetPoint,jdbcType=BIGINT},
+      point_worth = #{pointWorth,jdbcType=DECIMAL},
+      discount_price = #{discountPrice,jdbcType=DECIMAL},
+      coupon_price = #{couponPrice,jdbcType=DECIMAL},
+      back_order_status = #{backOrderStatus,jdbcType=CHAR},
+      finish_time = #{finishTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      del_state = #{delState,jdbcType=CHAR}
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+</mapper>

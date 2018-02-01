@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.MsgIndexMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.MsgIndex" >
+    <id column="msg_index_id" property="msgIndexId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="msg_user_id" property="msgUserId" jdbcType="BIGINT" />
+    <result column="msg_id" property="msgId" jdbcType="BIGINT" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    msg_index_id, user_id, msg_user_id, msg_id, time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from msg_index
+    where msg_index_id = #{msgIndexId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from msg_index
+    where msg_index_id = #{msgIndexId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.MsgIndex" >
+    insert into msg_index (msg_index_id, user_id, msg_user_id, 
+      msg_id, time)
+    values (#{msgIndexId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{msgUserId,jdbcType=BIGINT}, 
+      #{msgId,jdbcType=BIGINT}, #{time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.MsgIndex" >
+    insert into msg_index
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msgIndexId != null" >
+        msg_index_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="msgUserId != null" >
+        msg_user_id,
+      </if>
+      <if test="msgId != null" >
+        msg_id,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msgIndexId != null" >
+        #{msgIndexId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="msgUserId != null" >
+        #{msgUserId,jdbcType=BIGINT},
+      </if>
+      <if test="msgId != null" >
+        #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.MsgIndex" >
+    update msg_index
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="msgUserId != null" >
+        msg_user_id = #{msgUserId,jdbcType=BIGINT},
+      </if>
+      <if test="msgId != null" >
+        msg_id = #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where msg_index_id = #{msgIndexId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.MsgIndex" >
+    update msg_index
+    set user_id = #{userId,jdbcType=BIGINT},
+      msg_user_id = #{msgUserId,jdbcType=BIGINT},
+      msg_id = #{msgId,jdbcType=BIGINT},
+      time = #{time,jdbcType=TIMESTAMP}
+    where msg_index_id = #{msgIndexId,jdbcType=BIGINT}
+  </update>
+</mapper>

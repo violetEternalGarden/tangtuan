@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.GroupApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.GroupApply" >
+    <id column="group_apply" property="groupApply" jdbcType="BIGINT" />
+    <result column="group_id" property="groupId" jdbcType="BIGINT" />
+    <result column="group_num" property="groupNum" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="describe" property="describe" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    group_apply, group_id, group_num, user_id, describe, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from group_apply
+    where group_apply = #{groupApply,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from group_apply
+    where group_apply = #{groupApply,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.GroupApply" >
+    insert into group_apply (group_apply, group_id, group_num, 
+      user_id, describe, create_time
+      )
+    values (#{groupApply,jdbcType=BIGINT}, #{groupId,jdbcType=BIGINT}, #{groupNum,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{describe,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.GroupApply" >
+    insert into group_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupApply != null" >
+        group_apply,
+      </if>
+      <if test="groupId != null" >
+        group_id,
+      </if>
+      <if test="groupNum != null" >
+        group_num,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="describe != null" >
+        describe,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupApply != null" >
+        #{groupApply,jdbcType=BIGINT},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="groupNum != null" >
+        #{groupNum,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="describe != null" >
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.GroupApply" >
+    update group_apply
+    <set >
+      <if test="groupId != null" >
+        group_id = #{groupId,jdbcType=BIGINT},
+      </if>
+      <if test="groupNum != null" >
+        group_num = #{groupNum,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="describe != null" >
+        describe = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where group_apply = #{groupApply,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.GroupApply" >
+    update group_apply
+    set group_id = #{groupId,jdbcType=BIGINT},
+      group_num = #{groupNum,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      describe = #{describe,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where group_apply = #{groupApply,jdbcType=BIGINT}
+  </update>
+</mapper>

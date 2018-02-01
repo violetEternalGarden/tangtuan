@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.UserPositionMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.UserPosition" >
+    <id column="user_position_id" property="userPositionId" jdbcType="BIGINT" />
+    <result column="province_id" property="provinceId" jdbcType="CHAR" />
+    <result column="city_id" property="cityId" jdbcType="CHAR" />
+    <result column="area_id" property="areaId" jdbcType="CHAR" />
+    <result column="activity_address" property="activityAddress" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="DECIMAL" />
+    <result column="dimension" property="dimension" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_position_id, province_id, city_id, area_id, activity_address, longitude, dimension
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_position
+    where user_position_id = #{userPositionId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_position
+    where user_position_id = #{userPositionId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.UserPosition" >
+    insert into user_position (user_position_id, province_id, city_id, 
+      area_id, activity_address, longitude, 
+      dimension)
+    values (#{userPositionId,jdbcType=BIGINT}, #{provinceId,jdbcType=CHAR}, #{cityId,jdbcType=CHAR}, 
+      #{areaId,jdbcType=CHAR}, #{activityAddress,jdbcType=VARCHAR}, #{longitude,jdbcType=DECIMAL}, 
+      #{dimension,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.UserPosition" >
+    insert into user_position
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userPositionId != null" >
+        user_position_id,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="areaId != null" >
+        area_id,
+      </if>
+      <if test="activityAddress != null" >
+        activity_address,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="dimension != null" >
+        dimension,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userPositionId != null" >
+        #{userPositionId,jdbcType=BIGINT},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="activityAddress != null" >
+        #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="dimension != null" >
+        #{dimension,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.UserPosition" >
+    update user_position
+    <set >
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=CHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=CHAR},
+      </if>
+      <if test="areaId != null" >
+        area_id = #{areaId,jdbcType=CHAR},
+      </if>
+      <if test="activityAddress != null" >
+        activity_address = #{activityAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DECIMAL},
+      </if>
+      <if test="dimension != null" >
+        dimension = #{dimension,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where user_position_id = #{userPositionId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.UserPosition" >
+    update user_position
+    set province_id = #{provinceId,jdbcType=CHAR},
+      city_id = #{cityId,jdbcType=CHAR},
+      area_id = #{areaId,jdbcType=CHAR},
+      activity_address = #{activityAddress,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DECIMAL},
+      dimension = #{dimension,jdbcType=DECIMAL}
+    where user_position_id = #{userPositionId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.ArticleCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.ArticleComment" >
+    <id column="ar_comment_id" property="arCommentId" jdbcType="BIGINT" />
+    <result column="article_id" property="articleId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="delete_tieme" property="deleteTieme" jdbcType="TIMESTAMP" />
+    <result column="del_type" property="delType" jdbcType="CHAR" />
+    <result column="del_id" property="delId" jdbcType="BIGINT" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ar_comment_id, article_id, user_id, content, create_time, delete_tieme, del_type, 
+    del_id, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from article_comment
+    where ar_comment_id = #{arCommentId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from article_comment
+    where ar_comment_id = #{arCommentId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.ArticleComment" >
+    insert into article_comment (ar_comment_id, article_id, user_id, 
+      content, create_time, delete_tieme, 
+      del_type, del_id, state)
+    values (#{arCommentId,jdbcType=BIGINT}, #{articleId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{deleteTieme,jdbcType=TIMESTAMP}, 
+      #{delType,jdbcType=CHAR}, #{delId,jdbcType=BIGINT}, #{state,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.ArticleComment" >
+    insert into article_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="arCommentId != null" >
+        ar_comment_id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteTieme != null" >
+        delete_tieme,
+      </if>
+      <if test="delType != null" >
+        del_type,
+      </if>
+      <if test="delId != null" >
+        del_id,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="arCommentId != null" >
+        #{arCommentId,jdbcType=BIGINT},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTieme != null" >
+        #{deleteTieme,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delType != null" >
+        #{delType,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.ArticleComment" >
+    update article_comment
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTieme != null" >
+        delete_tieme = #{deleteTieme,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delType != null" >
+        del_type = #{delType,jdbcType=CHAR},
+      </if>
+      <if test="delId != null" >
+        del_id = #{delId,jdbcType=BIGINT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where ar_comment_id = #{arCommentId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.ArticleComment" >
+    update article_comment
+    set article_id = #{articleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delete_tieme = #{deleteTieme,jdbcType=TIMESTAMP},
+      del_type = #{delType,jdbcType=CHAR},
+      del_id = #{delId,jdbcType=BIGINT},
+      state = #{state,jdbcType=CHAR}
+    where ar_comment_id = #{arCommentId,jdbcType=BIGINT}
+  </update>
+</mapper>

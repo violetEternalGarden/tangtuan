@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AES+RSA混合加密demo</title>
+    <script src="../js/jquery.min.js"></script>
+
+    <script src="../js/aes/aes.js"></script>
+    <script src="../js/aes/mode-ecb.js"></script>
+
+    <script src="../js/rsa/RSA.js"></script>
+    <script src="../js/rsa/BigInt.js"></script>
+    <script src="../js/rsa/Barrett.js"></script>
+    <script src="../js/rsa/RSA_Stripped.js"></script>
+</head>
+<body>
+
+<script>
+    //    //加密
+    //    var miwen = Encrypt(_mingwen);
+    //    //解密
+    //    var mingwen = Decrypt(Encrypt(_mingwen))
+
+    //生成随机的16的整数倍 长度的aes秘钥
+    function randomString(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+
+    //加密
+    function Encrypt(key,mw) {
+        //对明文进行处理
+        var srcs = CryptoJS.enc.Utf8.parse(mw);
+        //进行加密
+        var encrypted = CryptoJS.AES.encrypt(srcs, key, {mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7});
+        //返回密文
+        return encrypted.toString();
+
+    }
+
+    //解密
+    function Decrypt(key,mw) {
+        var decrypt = CryptoJS.AES.decrypt(mw, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});
+        return CryptoJS.enc.Utf8.stringify(decrypt).toString();
+    }
+    //==================== AES对明文进行加密 ============================
+    //生成长度16的秘钥
+//    var s = randomString(16)
+    var s = "abcdefgabcdefg12"; //测试，指定AES秘钥
+    console.log("AES的秘钥==="+s)
+    //生成key
+    var key = CryptoJS.enc.Utf8.parse(s)
+    var _mingwen = "AES加密测试";
+    var _miwen = Encrypt(key,_mingwen)
+    console.log("AES的秘文==="+_miwen)
+
+    var _data = {}
+        _data.miwen=_miwen //AES加密的密文
+
+    //===================== RSA对秘钥进行加密 =============================
+
+    $.ajax({
+        type:"post",
+        url:"/rsa/keyPair",
+        dataType:"json",
+        success:function(data){
+            var exponent = data.exponent;
+            var modulus = data.modulus;
+            console.log("RSA的指数==="+exponent)
+            console.log("RSA的模==="+modulus)
+
+            var AESmiyao_mingwen = s;
+
+            var userNameMark = $("#userNameMark").val();
+            var pwdMark = $("#pwdMark").val();
+            if (AESmiyao_mingwen.length != 256) {
+                setMaxDigits(260);
+                var publicKey = new RSAKeyPair(exponent, '', modulus);
+                var AESmiyao_miwen = encryptedString(publicKey, encodeURIComponent(AESmiyao_mingwen));
+
+                console.log("加密后的AES秘钥"+AESmiyao_miwen)
+
+                _data.miyao = AESmiyao_miwen  //经过REA加密的AES秘钥
+                _data.test = "中文汉字";
+
+
+                $.ajax({
+                    type: "post",
+                    url: "/rsa/decryption2",
+                    contentType: "application/json",
+                    data:JSON.stringify(_data),
+                    success: function (data) { //后台返回的AES加密的密文
+                        console.log("后台返回的密文==="+data)
+                        var message = Decrypt(key,data)
+                        console.log("后台返回的信息"+message)
+
+
+                    }
+                })
+
+            }
+
+
+
+
+        }
+    })
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

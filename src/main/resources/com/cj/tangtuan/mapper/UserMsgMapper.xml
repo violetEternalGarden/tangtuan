@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.UserMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.UserMsg" >
+    <id column="user_msg_id" property="userMsgId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="accept_user_id" property="acceptUserId" jdbcType="BIGINT" />
+    <result column="msg_type" property="msgType" jdbcType="CHAR" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
+    <result column="privateletter_time" property="privateletterTime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_msg_id, user_id, accept_user_id, msg_type, msg, privateletter_time, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_msg
+    where user_msg_id = #{userMsgId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_msg
+    where user_msg_id = #{userMsgId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.UserMsg" >
+    insert into user_msg (user_msg_id, user_id, accept_user_id, 
+      msg_type, msg, privateletter_time, 
+      state)
+    values (#{userMsgId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{acceptUserId,jdbcType=BIGINT}, 
+      #{msgType,jdbcType=CHAR}, #{msg,jdbcType=VARCHAR}, #{privateletterTime,jdbcType=TIMESTAMP}, 
+      #{state,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.UserMsg" >
+    insert into user_msg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userMsgId != null" >
+        user_msg_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="acceptUserId != null" >
+        accept_user_id,
+      </if>
+      <if test="msgType != null" >
+        msg_type,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+      <if test="privateletterTime != null" >
+        privateletter_time,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userMsgId != null" >
+        #{userMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="acceptUserId != null" >
+        #{acceptUserId,jdbcType=BIGINT},
+      </if>
+      <if test="msgType != null" >
+        #{msgType,jdbcType=CHAR},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="privateletterTime != null" >
+        #{privateletterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.UserMsg" >
+    update user_msg
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="acceptUserId != null" >
+        accept_user_id = #{acceptUserId,jdbcType=BIGINT},
+      </if>
+      <if test="msgType != null" >
+        msg_type = #{msgType,jdbcType=CHAR},
+      </if>
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="privateletterTime != null" >
+        privateletter_time = #{privateletterTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where user_msg_id = #{userMsgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.UserMsg" >
+    update user_msg
+    set user_id = #{userId,jdbcType=BIGINT},
+      accept_user_id = #{acceptUserId,jdbcType=BIGINT},
+      msg_type = #{msgType,jdbcType=CHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      privateletter_time = #{privateletterTime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=CHAR}
+    where user_msg_id = #{userMsgId,jdbcType=BIGINT}
+  </update>
+</mapper>

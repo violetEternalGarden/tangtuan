@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.GroupMemberGroupingMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.GroupMemberGrouping" >
+    <id column="group_member_grouping" property="groupMemberGrouping" jdbcType="BIGINT" />
+    <result column="grouping_name" property="groupingName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    group_member_grouping, grouping_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from group_member_grouping
+    where group_member_grouping = #{groupMemberGrouping,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from group_member_grouping
+    where group_member_grouping = #{groupMemberGrouping,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.GroupMemberGrouping" >
+    insert into group_member_grouping (group_member_grouping, grouping_name)
+    values (#{groupMemberGrouping,jdbcType=BIGINT}, #{groupingName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.GroupMemberGrouping" >
+    insert into group_member_grouping
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupMemberGrouping != null" >
+        group_member_grouping,
+      </if>
+      <if test="groupingName != null" >
+        grouping_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupMemberGrouping != null" >
+        #{groupMemberGrouping,jdbcType=BIGINT},
+      </if>
+      <if test="groupingName != null" >
+        #{groupingName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.GroupMemberGrouping" >
+    update group_member_grouping
+    <set >
+      <if test="groupingName != null" >
+        grouping_name = #{groupingName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where group_member_grouping = #{groupMemberGrouping,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.GroupMemberGrouping" >
+    update group_member_grouping
+    set grouping_name = #{groupingName,jdbcType=VARCHAR}
+    where group_member_grouping = #{groupMemberGrouping,jdbcType=BIGINT}
+  </update>
+</mapper>

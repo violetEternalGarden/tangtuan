@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.MsgRelationMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.MsgRelation" >
+    <id column="msg_relation_id" property="msgRelationId" jdbcType="BIGINT" />
+    <result column="reference_id" property="referenceId" jdbcType="BIGINT" />
+    <result column="reference _msg_id" property="referenceMsgId" jdbcType="BIGINT" />
+    <result column="referenced_id" property="referencedId" jdbcType="BIGINT" />
+    <result column="referenced _msg_id" property="referencedMsgId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="page_index" property="pageIndex" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    msg_relation_id, reference_id, "reference _msg_id", referenced_id, "referenced _msg_id", 
+    type, create_time, page_index, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from msg_relation
+    where msg_relation_id = #{msgRelationId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from msg_relation
+    where msg_relation_id = #{msgRelationId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.MsgRelation" >
+    insert into msg_relation (msg_relation_id, reference_id, "reference _msg_id", 
+      referenced_id, "referenced _msg_id", type, 
+      create_time, page_index, state
+      )
+    values (#{msgRelationId,jdbcType=BIGINT}, #{referenceId,jdbcType=BIGINT}, #{referenceMsgId,jdbcType=BIGINT}, 
+      #{referencedId,jdbcType=BIGINT}, #{referencedMsgId,jdbcType=BIGINT}, #{type,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{pageIndex,jdbcType=INTEGER}, #{state,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.MsgRelation" >
+    insert into msg_relation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msgRelationId != null" >
+        msg_relation_id,
+      </if>
+      <if test="referenceId != null" >
+        reference_id,
+      </if>
+      <if test="referenceMsgId != null" >
+        "reference _msg_id",
+      </if>
+      <if test="referencedId != null" >
+        referenced_id,
+      </if>
+      <if test="referencedMsgId != null" >
+        "referenced _msg_id",
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="pageIndex != null" >
+        page_index,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msgRelationId != null" >
+        #{msgRelationId,jdbcType=BIGINT},
+      </if>
+      <if test="referenceId != null" >
+        #{referenceId,jdbcType=BIGINT},
+      </if>
+      <if test="referenceMsgId != null" >
+        #{referenceMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="referencedId != null" >
+        #{referencedId,jdbcType=BIGINT},
+      </if>
+      <if test="referencedMsgId != null" >
+        #{referencedMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageIndex != null" >
+        #{pageIndex,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.MsgRelation" >
+    update msg_relation
+    <set >
+      <if test="referenceId != null" >
+        reference_id = #{referenceId,jdbcType=BIGINT},
+      </if>
+      <if test="referenceMsgId != null" >
+        "reference _msg_id" = #{referenceMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="referencedId != null" >
+        referenced_id = #{referencedId,jdbcType=BIGINT},
+      </if>
+      <if test="referencedMsgId != null" >
+        "referenced _msg_id" = #{referencedMsgId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageIndex != null" >
+        page_index = #{pageIndex,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where msg_relation_id = #{msgRelationId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.MsgRelation" >
+    update msg_relation
+    set reference_id = #{referenceId,jdbcType=BIGINT},
+      "reference _msg_id" = #{referenceMsgId,jdbcType=BIGINT},
+      referenced_id = #{referencedId,jdbcType=BIGINT},
+      "referenced _msg_id" = #{referencedMsgId,jdbcType=BIGINT},
+      type = #{type,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      page_index = #{pageIndex,jdbcType=INTEGER},
+      state = #{state,jdbcType=CHAR}
+    where msg_relation_id = #{msgRelationId,jdbcType=BIGINT}
+  </update>
+</mapper>

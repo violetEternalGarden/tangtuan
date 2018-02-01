@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.MsgAtusersMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.MsgAtusers" >
+    <id column="atusers_id" property="atusersId" jdbcType="BIGINT" />
+    <result column="msg_id" property="msgId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="user_atid" property="userAtid" jdbcType="BIGINT" />
+    <result column="at_time" property="atTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    atusers_id, msg_id, user_id, user_atid, at_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from msg_atusers
+    where atusers_id = #{atusersId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from msg_atusers
+    where atusers_id = #{atusersId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.MsgAtusers" >
+    insert into msg_atusers (atusers_id, msg_id, user_id, 
+      user_atid, at_time)
+    values (#{atusersId,jdbcType=BIGINT}, #{msgId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{userAtid,jdbcType=BIGINT}, #{atTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.MsgAtusers" >
+    insert into msg_atusers
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="atusersId != null" >
+        atusers_id,
+      </if>
+      <if test="msgId != null" >
+        msg_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userAtid != null" >
+        user_atid,
+      </if>
+      <if test="atTime != null" >
+        at_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="atusersId != null" >
+        #{atusersId,jdbcType=BIGINT},
+      </if>
+      <if test="msgId != null" >
+        #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userAtid != null" >
+        #{userAtid,jdbcType=BIGINT},
+      </if>
+      <if test="atTime != null" >
+        #{atTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.MsgAtusers" >
+    update msg_atusers
+    <set >
+      <if test="msgId != null" >
+        msg_id = #{msgId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userAtid != null" >
+        user_atid = #{userAtid,jdbcType=BIGINT},
+      </if>
+      <if test="atTime != null" >
+        at_time = #{atTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where atusers_id = #{atusersId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.MsgAtusers" >
+    update msg_atusers
+    set msg_id = #{msgId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      user_atid = #{userAtid,jdbcType=BIGINT},
+      at_time = #{atTime,jdbcType=TIMESTAMP}
+    where atusers_id = #{atusersId,jdbcType=BIGINT}
+  </update>
+</mapper>
