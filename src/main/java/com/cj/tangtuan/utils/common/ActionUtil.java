@@ -3,7 +3,6 @@ package com.cj.tangtuan.utils.common;
 
 
 
-import com.cj.tangtuan.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -46,23 +45,23 @@ public class ActionUtil {
 	public static final String CONTRACT_NUM = "CONTRACT_NUM";
 
 	public static final Map<String,String> fileNameMap = new HashMap();
-	public static User getCurrentUser(HttpServletRequest request) {
-		User user = (User) request.getSession().getAttribute(SESSION_USER);
-		return user;
-	}
-	public static User getCurrentUser(HttpSession httpSession) {
-		Object obj = httpSession.getAttribute(SESSION_USER);
-		if(obj == null){
-			return null;
-		}
-		return (User)obj;
-	}
+//	public static User getCurrentUser(HttpServletRequest request) {
+//		User user = (User) request.getSession().getAttribute(SESSION_USER);
+//		return user;
+//	}
+//	public static User getCurrentUser(HttpSession httpSession) {
+//		Object obj = httpSession.getAttribute(SESSION_USER);
+//		if(obj == null){
+//			return null;
+//		}
+//		return (User)obj;
+//	}
 
-	public static void setCurrentUser(HttpServletRequest request, User user) {
-		HttpSession session = request.getSession();
-		session.setAttribute(SESSION_USER, user);
-		session.setAttribute(SESSION_USER_LOGOUT, false);
-	}
+//	public static void setCurrentUser(HttpServletRequest request, User user) {
+//		HttpSession session = request.getSession();
+//		session.setAttribute(SESSION_USER, user);
+//		session.setAttribute(SESSION_USER_LOGOUT, false);
+//	}
 //
 //	public static Admin getCurrentAdmin(HttpServletRequest request) {
 //		Admin Admin = (Admin) request.getSession().getAttribute(SESSION_Admin);

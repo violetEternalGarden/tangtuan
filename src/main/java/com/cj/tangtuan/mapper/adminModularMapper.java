@@ -1,41 +1,34 @@
 package com.cj.tangtuan.mapper;
 
-import com.cj.tangtuan.entity.adminModular;
 
-public interface adminModularMapper {
-    /**
-     *
-     * @mbggenerated
-     */
+import com.cj.tangtuan.entity.AdminModular;
+import com.cj.tangtuan.entity.other.AdminModulars;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+@Mapper
+public interface AdminModularMapper {
     int deleteByPrimaryKey(Integer id);
 
-    /**
-     *
-     * @mbggenerated
-     */
-    int insert(adminModular record);
+    int insert(AdminModular record);
 
-    /**
-     *
-     * @mbggenerated
-     */
-    int insertSelective(adminModular record);
+    int insertSelective(AdminModular record);
 
-    /**
-     *
-     * @mbggenerated
-     */
-    adminModular selectByPrimaryKey(Integer id);
+    AdminModular selectByPrimaryKey(Integer id);
 
-    /**
-     *
-     * @mbggenerated
-     */
-    int updateByPrimaryKeySelective(adminModular record);
+    int updateByPrimaryKeySelective(AdminModular record);
 
-    /**
-     *
-     * @mbggenerated
-     */
-    int updateByPrimaryKey(adminModular record);
+    int updateByPrimaryKey(AdminModular record);
+
+    //查询所有目录
+    public List<AdminModulars> findAllCatalog();
+
+    //查询roleIds集合的权限列表
+    public List<AdminModular> findAllRoleModular(List roleIds);
+
+    //查询所有的权限列表
+    public List<AdminModular> findAllRoleModulars();
 }

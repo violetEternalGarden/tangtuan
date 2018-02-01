@@ -2,7 +2,7 @@ package com.cj.tangtuan.entity;
 
 import java.util.Date;
 
-public class adminModular {
+public class AdminModular {
     /**
      * 权限资源表
      */

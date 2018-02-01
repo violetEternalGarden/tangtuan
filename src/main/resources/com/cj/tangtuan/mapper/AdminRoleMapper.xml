@@ -90,4 +90,35 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查询角色名是否已存在-->
+  <select id="findRoleName" parameterType="com.cj.tangtuan.entity.AdminRole" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    admin_role ar
+    WHERE
+    ar.role_name = #{roleName}
+  </select>
+
+  <!--删除角色-->
+  <update id="updateRole" parameterType="com.cj.tangtuan.entity.AdminRole">
+    UPDATE admin_role
+    SET state = '0'
+    WHERE
+    id = #{id}
+  </update>
+
+  <!--分类查询正常使用的角色-->
+  <select id="findAllRole" parameterType="com.cj.tangtuan.entity.AdminRole" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    admin_role ar
+    WHERE
+    ar.state = '1'
+    <if test="type &gt; 0">
+      AND ar.type = #{type}
+    </if>
+  </select>
 </mapper>

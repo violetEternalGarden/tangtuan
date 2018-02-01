@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.cj.tangtuan.mapper.groupMsgMapper" >
-  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.groupMsg" >
+<mapper namespace="com.cj.tangtuan.mapper.GroupMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.GroupMsg" >
     <id column="group_msg_id" property="groupMsgId" jdbcType="BIGINT" />
     <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="group_num" property="groupNum" jdbcType="BIGINT" />
@@ -23,7 +23,7 @@
     delete from group_msg
     where group_msg_id = #{groupMsgId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.cj.tangtuan.entity.groupMsg" >
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.GroupMsg" >
     insert into group_msg (group_msg_id, group_id, group_num, 
       user_id, msg, create_time, 
       state)
@@ -31,7 +31,7 @@
       #{userId,jdbcType=BIGINT}, #{msg,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{state,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.groupMsg" >
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.GroupMsg" >
     insert into group_msg
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="groupMsgId != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.groupMsg" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.GroupMsg" >
     update group_msg
     <set >
       <if test="groupId != null" >
@@ -104,7 +104,7 @@
     </set>
     where group_msg_id = #{groupMsgId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.groupMsg" >
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.GroupMsg" >
     update group_msg
     set group_id = #{groupId,jdbcType=BIGINT},
       group_num = #{groupNum,jdbcType=BIGINT},

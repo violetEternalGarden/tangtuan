@@ -1,4 +1,4 @@
-package com.cj.tangtuan.entity.file;
+package com.cj.tangtuan.entity.other;
 
 import java.beans.Transient;
 import java.util.Objects;
