@@ -155,6 +155,7 @@ public class AdminController {
 
     //修改管理员角色(修改角色名)
     @PutMapping("/updateAdminRole")
+    @ResponseBody
     public Map updateAdminRole(@RequestBody Admin admin){
 
         int i = adminService.updateAdmin(admin);
