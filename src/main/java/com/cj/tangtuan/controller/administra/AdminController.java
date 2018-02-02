@@ -37,7 +37,7 @@ public class AdminController {
   /*============================================ 页面跳转 start =======================================================*/
 
     //跳转到登陆页面
-    @GetMapping
+    @GetMapping()
     public ModelAndView toLogin(HttpServletRequest request, HttpServletResponse response){
         System.out.println("============================跳转到登陆页面======================================");
         ModelAndView mav = new ModelAndView();
@@ -51,6 +51,8 @@ public class AdminController {
 
         return mav;
     }
+
+
 
     /*========================================= 页面跳转 end ==========================================================*/
 
@@ -274,6 +276,6 @@ public class AdminController {
     public Object ifLogout(HttpServletRequest request){
 
         adminService.ifLogout(request);
-        return "redirect:/";
+        return "redirect:/admin";
     }
 }

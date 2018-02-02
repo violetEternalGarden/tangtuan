@@ -1,11 +1,14 @@
 package com.cj.tangtuan.filter;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+@Slf4j
 public class UserFilter implements Filter {
     @Override
     public void destroy() {
@@ -17,6 +20,7 @@ public class UserFilter implements Filter {
 //            //打印请求Url
 //            System.out.println("this is MyFilter,url :" + request.getRequestURI());
 //            filterChain.doFilter(srequest, sresponse);
+        log.info("========================前端过滤器=====================");
 
         // 将请求转换成HttpServletRequest 请求
         HttpServletRequest req = (HttpServletRequest) servletRequest;

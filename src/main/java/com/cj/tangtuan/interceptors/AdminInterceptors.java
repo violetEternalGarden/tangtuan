@@ -19,6 +19,7 @@ public class AdminInterceptors implements HandlerInterceptor {
     String[] urls = new String[] {
             "/admin",
             "/admin/ifLogin",
+            "/admin/ifLogout",
             "/admin/to"
 
     };
