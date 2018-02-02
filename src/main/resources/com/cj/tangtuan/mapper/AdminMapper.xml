@@ -215,7 +215,7 @@
   </select>
 
   <!--分页查询管理员列表-->
-  <select id="findAllAdmin" parameterType="com.cj.tangtuan.common.QueryBase" resultMap="ADMINS">
+  <select id="findAllAdmin" parameterType="com.cj.tangtuan.utils.common.QueryBase" resultMap="ADMINS">
     SELECT
     a.id,a.admin_name,a.role_id,ar.role_name,a.admin_state,a.admin_type,a.create_time
     FROM admin a

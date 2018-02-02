@@ -19,7 +19,10 @@ public class RegionController {
     @Autowired
     private RegionService regionService;
 
-
+    /**
+     * 查询所有的地区，按格式封装
+     * @return
+     */
     @GetMapping("/Region")
     @ResponseBody
     public Object findRegion(){

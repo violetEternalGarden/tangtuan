@@ -1,4 +1,4 @@
-package com.cj.tangtuan.controller;
+package com.cj.tangtuan.controller.administra;
 
 import com.cj.tangtuan.entity.Admin;
 import com.cj.tangtuan.entity.AdminRole;
