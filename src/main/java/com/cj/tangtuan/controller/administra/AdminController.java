@@ -274,8 +274,6 @@ public class AdminController {
     public Object ifLogout(HttpServletRequest request){
 
         adminService.ifLogout(request);
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName(Status.Prefix+Status.IFLOGIN+Status.Suffix);
-        return mav;
+        return "redirect:/";
     }
 }
