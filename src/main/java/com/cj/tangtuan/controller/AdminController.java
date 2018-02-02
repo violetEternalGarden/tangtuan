@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * Created by XD on 2017/12/6.
- * 管理员信息处理
+ * 管理员信息处理、角色管理、权限管理
  */
 
 @Controller

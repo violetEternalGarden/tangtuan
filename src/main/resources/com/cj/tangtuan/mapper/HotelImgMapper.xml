@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cj.tangtuan.mapper.HotelImgMapper" >
+  <resultMap id="BaseResultMap" type="com.cj.tangtuan.entity.HotelImg" >
+    <id column="hotel_img_id" property="hotelImgId" jdbcType="BIGINT" />
+    <result column="hotel_id" property="hotelId" jdbcType="BIGINT" />
+    <result column="img_url" property="imgUrl" jdbcType="BIGINT" />
+    <result column="img_type" property="imgType" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    hotel_img_id, hotel_id, img_url, img_type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from hotel_img
+    where hotel_img_id = #{hotelImgId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from hotel_img
+    where hotel_img_id = #{hotelImgId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.cj.tangtuan.entity.HotelImg" >
+    insert into hotel_img (hotel_img_id, hotel_id, img_url, 
+      img_type)
+    values (#{hotelImgId,jdbcType=BIGINT}, #{hotelId,jdbcType=BIGINT}, #{imgUrl,jdbcType=BIGINT}, 
+      #{imgType,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cj.tangtuan.entity.HotelImg" >
+    insert into hotel_img
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hotelImgId != null" >
+        hotel_img_id,
+      </if>
+      <if test="hotelId != null" >
+        hotel_id,
+      </if>
+      <if test="imgUrl != null" >
+        img_url,
+      </if>
+      <if test="imgType != null" >
+        img_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hotelImgId != null" >
+        #{hotelImgId,jdbcType=BIGINT},
+      </if>
+      <if test="hotelId != null" >
+        #{hotelId,jdbcType=BIGINT},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=BIGINT},
+      </if>
+      <if test="imgType != null" >
+        #{imgType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cj.tangtuan.entity.HotelImg" >
+    update hotel_img
+    <set >
+      <if test="hotelId != null" >
+        hotel_id = #{hotelId,jdbcType=BIGINT},
+      </if>
+      <if test="imgUrl != null" >
+        img_url = #{imgUrl,jdbcType=BIGINT},
+      </if>
+      <if test="imgType != null" >
+        img_type = #{imgType,jdbcType=CHAR},
+      </if>
+    </set>
+    where hotel_img_id = #{hotelImgId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cj.tangtuan.entity.HotelImg" >
+    update hotel_img
+    set hotel_id = #{hotelId,jdbcType=BIGINT},
+      img_url = #{imgUrl,jdbcType=BIGINT},
+      img_type = #{imgType,jdbcType=CHAR}
+    where hotel_img_id = #{hotelImgId,jdbcType=BIGINT}
+  </update>
+</mapper>

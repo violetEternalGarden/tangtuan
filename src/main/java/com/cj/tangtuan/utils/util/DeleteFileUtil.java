@@ -1,6 +1,6 @@
 package com.cj.tangtuan.utils.util;
 
-import com.cj.tangtuan.entity.file.FileData;
+import com.cj.tangtuan.entity.other.FileData;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 

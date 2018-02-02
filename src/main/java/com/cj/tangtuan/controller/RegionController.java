@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by XD on 2017/12/1.
- * 地区信息
+ * 地区信息查询
  */
 @Controller
 public class RegionController {

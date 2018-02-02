@@ -1,11 +1,11 @@
 package com.cj.tangtuan.service.impl;
 
-import com.cjkj.entity.DqArea;
-import com.cjkj.entity.DqCity;
-import com.cjkj.entity.DqProvince;
-import com.cjkj.entity.Region;
-import com.cjkj.mapper.RegionMapper;
-import com.cjkj.service.RegionService;
+import com.cj.tangtuan.entity.DqArea;
+import com.cj.tangtuan.entity.DqCity;
+import com.cj.tangtuan.entity.DqProvince;
+import com.cj.tangtuan.entity.other.Region;
+import com.cj.tangtuan.mapper.RegionMapper;
+import com.cj.tangtuan.service.RegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class RegionServiceImpl implements RegionService {
 
 
     @Autowired
-    private  RegionMapper regionMapper;
+    private RegionMapper regionMapper;
 
 
     //查询所有的省、市、区集合
