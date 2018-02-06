@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新建订单</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="author" content="zhy"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/newOrder.css"/>
+    <!--[if lte IE 9]>
+    <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="bx-header">
+    <div class="pull-left">
+        <img src="images/" alt="">
+    </div>
+    <div class=" pull-right head-nav-right soging-photes-active">
+        <div class="head-nav-userName">
+            张三
+            <i class="head-nav-icon"></i>
+        </div>
+        <div class="soging-photes-display after ">
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bx-content">
+    <!--导航手风琴-->
+    <div class="bx-mean">
+        <ul id="accordion" class="accordion">
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon1"></i>
+                    订单管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="">订单列表</a></li>
+                    <li><a href="#">新建订单</a></li>
+                    <li><a href="#">佣金结算</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href=".html">
+                    <i class="bx-icon bx-icon2"></i>
+                    基础管理
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon3"></i>
+                    费用政策管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="#">结入费用</a></li>
+                    <li><a href="#">结出费用</a></li>
+                    <li><a href="#">备用费用结出</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon4"></i>
+                    客户管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="#">客户信息列表</a></li>
+                    <li><a href="#">联系人列表</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon5"></i>
+                    管理员设置
+                </div>
+                <ul class="submenu">
+                    <li><a href="#"> 角色管理</a></li>
+                    <li><a href="#"> 用户管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon6"></i>
+                    财务结算
+                </div>
+                <ul class="submenu">
+                    <li><a href="#">财务结算总览表</a></li>
+                    <li><a href="#">保险公司财务结算</a></li>
+                    <li><a href="#">中介公司财务结算</a></li>
+                    <li><a href="#">会员财务结算</a></li>
+                    <li><a href="#">其他渠道财务结算</a></li>
+                    <li><a href="#">下游渠道财务结算</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon7"></i>
+                    报表分析
+                </div>
+                <ul class="submenu">
+                    <li><a href="#">下单时间分析报表</a></li>
+                    <li><a href="#">下单渠道分析报表</a></li>
+                    <li><a href="#">下单地区分析报表</a></li>
+                    <li><a href="#">保险公司分析报表</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--视图区-->
+    <div class="bx-sideright">
+        <!--视图区导航-->
+        <div class="bx-siderightTit after">
+            <p class="orderListP">
+                订单管理
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </p>
+            <p class="orderListP">
+                新建订单
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </p>
+        </div>
+        <div class="orderCommit">
+            <div class="orderListNum">
+                新建订单
+            </div>
+            <div class="newOrderCont">
+                <div class="newOrderTit">
+                    车险报价
+                </div>
+                <!--基本信息-->
+                <div class="newOrderContTit">
+                    基本信息
+                </div>
+                <div class="row newOrderControw">
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            选择渠道公司:
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <select name="" id="">
+                                <option value="1">星座</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            选择渠道公司::
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <select name="">
+                                <option value="1">星座</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            所属城市：
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            车牌号:
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text" style="width: 220px;">
+                            <label for="" style="">
+                                <input type="checkbox" style="">新车未上拍照
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            车主姓名：
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            手机号码：
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            身份证号码：
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+                <!--车辆信息-->
+                <div class="newOrderContTit">
+                    车辆信息
+                </div>
+                <div class="row newOrderControw">
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            初登日期:
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            车架号:
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            发动机号：
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            品牌型号:
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <input type="text">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-24 col-xs-24">
+                        <p class="pull-left newOrderP">
+                            是否过户车：
+                        </p>
+                        <div class="pull-left newOrderinpuuBox">
+                            <label for="">
+                                <input type="radio" name="rideo" style="">是
+                            </label>
+                            <label for="">
+                                <input type="radio" name="rideo" style="">否
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="newOrderTit">
+                    商业险
+                </div>
+                <div class="row newOrderConchex">
+                    <div class="after">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>
+                                    全选
+                                </th>
+                                <th>
+                                    保障条款
+                                </th>
+                                <th>
+                                    保额
+                                </th>
+                                <th>
+                                    保额
+                                </th>
+                                <th>
+                                    是否不计免赔
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    车辆损失保险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    商业第三者责任保险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    全车盗抢保险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    车上人员责任保险（司机）
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    车上人员责任保险（乘客）
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    玻璃单独破碎险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    自燃损失险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    新增设备损失险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    车身划痕损失险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    发动机涉水损失险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    修理期间费用补偿险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    车上货物责任险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    精神损害抚慰金责任险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    车辆损失保险无法找到第三方特约险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    指定修理厂险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    不计免赔率险
+                                </td>
+                                <td>
+                                    <select name="" class="newOrderSelect">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    0.00
+                                </td>
+                                <td>
+                                    不计免赔
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="newOrderTit">
+                        交强险/车船税
+                    </div>
+                    <div class="row newOrderConchex">
+                        <div class="after">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        全选
+                                    </th>
+                                    <th>
+                                        保障条款
+                                    </th>
+                                    <th>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                    </th>
+                                    <th>
+                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                    </th>
+                                    <th>
+                                        保费
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>
+                                        交强险
+                                    </td>
+                                    <td colspan="2">
+
+                                    </td>
+                                    <td>
+                                        0.00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>
+                                        车船税
+                                    </td>
+                                    <td colspan="2">
+
+                                    </td>
+                                    <td>
+                                        0.00
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <ul class="after newOrderComputer">
+                   <li class="newOrderComputerLI">
+                        <p class="newOrderComputerP1">
+                            商业险
+                        </p>
+                       <div class="after">
+                            <p class="pull-left">
+                                0.00
+                            </p>
+                           <p class="pull-right">
+                                +
+                           </p>
+                       </div>
+                   </li>
+                    <li class="newOrderComputerLI">
+                        <p class="newOrderComputerP1">
+                            交强险
+                        </p>
+                        <div class="after">
+                            <p class="pull-left">
+                                0.00
+                            </p>
+                            <p class="pull-right">
+                                +
+                            </p>
+                        </div>
+                    </li>
+                    <li class="newOrderComputerLI">
+                        <p class="newOrderComputerP1">
+                            车船税
+                        </p>
+                        <div class="after">
+                            <p class="pull-left">
+                                0.00
+                            </p>
+                            <p class="pull-right">
+                                =
+                            </p>
+                        </div>
+                    </li>
+                    <li class="newOrderComputerLI">
+                        <p class="newOrderComputerP1">
+                            总价
+                        </p>
+                        <div class="after">
+                            <p class="pull-left">
+                                0.00
+                            </p>
+                        </div>
+                    </li>
+                    <li class="pull-left">
+                        <div class="newOrderComputerBtn">
+                            计算
+                        </div>
+                    </li>
+                </ul>
+                <div class="newComputerBtnBox">
+                    <p class="newComputerBtn">
+                        下一步
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public.js"></script>
+<script>
+</script>
+</body>
+</html>

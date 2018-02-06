@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中介公司列表</title>
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="author" content="zhy"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/orderList.css"/>
+    <link rel="stylesheet" href="css/basicManagement.css"/>
+    <style>
+        .modal-footer{
+            padding: 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .modal-footerLeft{
+            width: 50%;
+            height: 70px;
+            float: left;
+            line-height: 70px;
+        }
+        .modal-footerRight{
+            width: 50%;
+            height: 70px;
+            float: left;
+            line-height: 70px;
+            background-color: #29353f;
+            color: #FFFFff;
+        }
+    </style>
+    <!--[if lte IE 9]>
+    <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="bx-header">
+    <div class="pull-left">
+        <img src="images/" alt="">
+    </div>
+    <div class=" pull-right head-nav-right soging-photes-active">
+        <div class="head-nav-userName">
+            张三
+            <i class="head-nav-icon"></i>
+        </div>
+        <div class="soging-photes-display after ">
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bx-content">
+    <!--导航手风琴-->
+    <div class="bx-mean">
+        <ul id="accordion" class="accordion">
+            <li>
+                <a class="link" href="index.html">
+                    <i class="glyphicon glyphicon-home" style="margin-top: 4px;float: left;margin-right: 14px;"></i>
+                    运营数据
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon1"></i>
+                    订单管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="orderList.html">订单列表</a></li>
+                    <li><a href="newOrder.html">新建订单</a></li>
+                    <li><a href="commissionSettlement.html">佣金结算</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="basicManagement.html">
+                    <i class="bx-icon bx-icon2"></i>
+                    渠道管理
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon3"></i>
+                    费用政策管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="junction.html">结入费用</a></li>
+                    <li><a href="bear.html">结出费用</a></li>
+                    <li><a href="spareCost.html">备用费用结出</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon4"></i>
+                客户管理
+            </div>
+                <ul class="submenu">
+                    <li><a href="customerInformation.html">客户信息列表</a></li>
+                    <li><a href="contacts.html">联系人列表</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon5"></i>
+                管理员设置
+
+            </div>
+                <ul class="submenu">
+                    <li><a href="role.html"> 角色管理</a></li>
+                    <li><a href="user.html"> 用户管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon6"></i>
+                财务结算
+            </div>
+                <ul class="submenu">
+                    <li><a href="financialSettlement.html">财务结算总览表</a></li>
+                    <li><a href="insuranceCompany.html">保险公司财务结算</a></li>
+                    <li><a href="intermediary.html">中介公司财务结算</a></li>
+                    <li><a href="member.html">会员财务结算</a></li>
+                    <li><a href="otherchannels.html">其他渠道财务结算</a></li>
+                    <li><a href="downstreamChannel.html">下游渠道财务结算</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon7"></i>
+                报表分析
+            </div>
+                <ul class="submenu">
+                    <li><a href="orderTime.html">下单时间分析报表</a></li>
+                    <li><a href="singleChannel.html">下单渠道分析报表</a></li>
+                    <li><a href="lowerArea.html">下单地区分析报表</a></li>
+                    <li><a href="bxbaobiao.html">保险公司分析报表</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="jurisdiction.html">
+                    <i class="bx-icon bx-icon5"></i>
+                    权限管理
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--视图区-->
+    <div class="bx-sideright">
+        <!--视图区导航-->
+        <div class="bx-siderightTit after">
+            <p class="orderListP">
+                渠道管理
+            </p>
+        </div>
+        <div class="orderCommit">
+            <div class="orderListNum">
+                中介公司列表
+            </div>
+            <div class="orderCont ">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">中介公司</span>
+                            <input type="text" class="form-control userNameGs" name="customerUsername "  value="" placeholder="根据名称查找">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn orderListBtn">搜索</button>
+                    </div>
+                </div>
+                <div class="after orderListBtnBox">
+                    <a href="javascript:;" class="orderListBtnNew orderListSeeBtn" state="2">
+                        新增中介公司
+                    </a>
+                </div>
+            </div>
+            <div id="listOrderContainer">
+                <table class="table order_table">
+                    <thead>
+                    <tr>
+                        <!--<th><input type="checkbox" ></th>-->
+                        <th>序号</th>
+                        <th class="text-center">中介名称</th>
+                        <th class="text-center">折扣</th>
+                        <th class="text-center ">创建时间</th>
+                        <th class="text-center ">状态</th>
+                        <!--<th class="text-center">地区</th>-->
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="tabody">
+
+                    </tbody>
+                </table>
+                <div class="account_pagingBox">
+                    <div class="account_paging">
+                        <span class="account_pagingFont pageTotal">共条</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont  pageHome">首页</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont pageUpper">上一页</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont pageFirst">第<span id="pageFirstCont"></span>页</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont pageNext">下一页</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont pageShadowe">尾页</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont pageCount">共页</span>
+                        <span class="account_pagingLine">|</span>
+                        <span class="account_pagingFont pageJump">跳转至</span>
+                        <input type="text" maxlength="3" class="pagingInput" max="100" min="0"/>
+                        <span class=" pagBtn">Go</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹窗-->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title text-center" id="myModalLabel">中介公司</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加中介公司-->
+                <div class="addbasicMan">
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            中介公司名称：
+                        </p>
+                        <p class="pull-left">
+                            <input type="text" class="basicManInput name">
+                        </p>
+                    </div>
+                    <!--<div class="after orderDelesCont">-->
+                        <!--<p class="pull-left">-->
+                            <!--所属上级：-->
+                        <!--</p>-->
+                        <!--<p class="pull-left">-->
+                            <!--<select name=""  class="basicManSelect">-->
+                                <!--<option value="">1</option>-->
+                                <!--<option value="">2</option>-->
+                            <!--</select>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            状态：
+                        </p>
+                        <p class="pull-left">
+                            <select name=""  class="basicManSelect ">
+                                <option value="1">开启</option>
+                                <option value="0">停用</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            配置折扣：
+                        </p>
+                        <p class="pull-left">
+                            <input type="text" class="basicManInput bearRatio" placeholder="0-1之间">
+                        </p>
+                    </div>
+                </div>
+                <!--删除-->
+                <div class="delectList">
+                    <p class="delectListP">
+
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footerLeft cloneMOdil" data-dismiss="modal">
+                    取消
+                </div>
+                <div class="modal-footerRight subBtn">
+                    确定
+                </div>
+                <!--<button type="button" class="btn btn-default orderDelesBtn" data-dismiss="modal">关闭</button>-->
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--&lt;!&ndash; Large modal &ndash;&gt;-->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>-->
+
+<!--<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
+    <!--<div class="modal-dialog modal-lg" role="document">-->
+        <!--<div class="modal-content">-->
+            <!--...-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!-- Small modal -->
+<button type="button" hidden class="alertBtn" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="mySmallModalLabel">提示框</h4>
+            </div>
+            <div class="modal-body modalAlert">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/publicFun.js"></script>
+<script src="js/intermediaryList.js"></script>
+<script>
+
+</script>
+</body>
+</html>

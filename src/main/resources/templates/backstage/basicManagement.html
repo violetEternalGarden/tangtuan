@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渠道管理</title>
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="author" content="zhy"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/basicManagement.css"/>
+    <style>
+        .modal-footer{
+            padding: 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .modal-footerLeft{
+            width: 50%;
+            height: 70px;
+            float: left;
+            line-height: 70px;
+        }
+        .modal-footerRight{
+            width: 50%;
+            height: 70px;
+            float: left;
+            line-height: 70px;
+            background-color: #29353f;
+            color: #FFFFff;
+        }
+    </style>
+    <!--[if lte IE 9]>
+    <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="bx-header">
+    <div class="pull-left">
+        <img src="images/" alt="">
+    </div>
+    <div class=" pull-right head-nav-right soging-photes-active">
+        <div class="head-nav-userName">
+            张三
+            <i class="head-nav-icon"></i>
+        </div>
+        <div class="soging-photes-display after ">
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bx-content">
+    <!--导航手风琴-->
+    <div class="bx-mean">
+        <ul id="accordion" class="accordion">
+            <li>
+                <a class="link" href="index.html">
+                    <i class="glyphicon glyphicon-home" style="margin-top: 4px;float: left;margin-right: 14px;"></i>
+                    运营数据
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon1"></i>
+                    订单管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="orderList.html">订单列表</a></li>
+                    <li><a href="newOrder.html">新建订单</a></li>
+                    <li><a href="commissionSettlement.html">佣金结算</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="basicManagement.html">
+                    <i class="bx-icon bx-icon2"></i>
+                    渠道管理
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon3"></i>
+                    费用政策管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="junction.html">结入费用</a></li>
+                    <li><a href="bear.html">结出费用</a></li>
+                    <li><a href="spareCost.html">备用费用结出</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon4"></i>
+                客户管理
+            </div>
+                <ul class="submenu">
+                    <li><a href="customerInformation.html">客户信息列表</a></li>
+                    <li><a href="contacts.html">联系人列表</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon5"></i>
+                管理员设置
+
+            </div>
+                <ul class="submenu">
+                    <li><a href="role.html"> 角色管理</a></li>
+                    <li><a href="user.html"> 用户管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon6"></i>
+                财务结算
+            </div>
+                <ul class="submenu">
+                    <li><a href="financialSettlement.html">财务结算总览表</a></li>
+                    <li><a href="insuranceCompany.html">保险公司财务结算</a></li>
+                    <li><a href="intermediary.html">中介公司财务结算</a></li>
+                    <li><a href="member.html">会员财务结算</a></li>
+                    <li><a href="otherchannels.html">其他渠道财务结算</a></li>
+                    <li><a href="downstreamChannel.html">下游渠道财务结算</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon7"></i>
+                报表分析
+            </div>
+                <ul class="submenu">
+                    <li><a href="orderTime.html">下单时间分析报表</a></li>
+                    <li><a href="singleChannel.html">下单渠道分析报表</a></li>
+                    <li><a href="lowerArea.html">下单地区分析报表</a></li>
+                    <li><a href="bxbaobiao.html">保险公司分析报表</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="jurisdiction.html">
+                    <i class="bx-icon bx-icon5"></i>
+                    权限管理
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--视图区-->
+    <div class="bx-sideright">
+        <!--视图区导航-->
+        <div class="bx-siderightTit after">
+            <p class="orderListP">
+                渠道管理
+            </p>
+        </div>
+        <div class="orderCommit">
+            <div class="orderListNum">
+                渠道配置
+            </div>
+            <div class="basicManBtns after">
+                <p class="pull-left Import">
+                    保险信息导入
+                </p>
+                <p class="pull-left export">
+                    保险信息导出
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12 pull-right">
+                    <div class="basicManBox">
+                        <div class="basicMantit after">
+                            <input type="text" placeholder="请输入名称查找">
+                            <p>
+                                搜索
+                            </p>
+                        </div>
+                        <div class="basicManAdd">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            添加保险公司
+                        </div>
+                        <div class="basicManList">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            保险公司名称
+                                        </th>
+                                        <th>
+                                            状态
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            中国华泰车险
+                                        </td>
+                                        <td>
+                                            停用
+                                        </td>
+                                        <td class="basicManListBtn">
+                                            <div class="basicManListBOX">
+                                                <a href="javascript:;" class="glyphicon glyphicon-edit"></a>
+                                                <a href="javascript:;" class="glyphicon glyphicon-trash" style="margin-left: 20px"></a>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            中国华泰车险
+                                        </td>
+                                        <td>
+                                            停用
+                                        </td>
+                                        <td class="basicManListBtn">
+                                            <div class="basicManListBOX">
+                                                <a href="javascript:;" class="glyphicon glyphicon-edit"></a>
+                                                <a href="javascript:;" class="glyphicon glyphicon-trash" style="margin-left: 20px"></a>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+                    <div class="basicManBox">
+                        <div class="basicMantit after">
+                            <input type="text" placeholder="请输入名称查找">
+                            <p>
+                                搜索
+                            </p>
+                        </div>
+                        <div class="basicManAdd orderListSeeBtn">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            添加渠道公司
+                        </div>
+                        <div class="basicManList">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        渠道名称
+                                    </th>
+                                    <th>
+                                        状态
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        中融
+                                    </td>
+                                    <td>
+                                        停用
+                                    </td>
+                                    <td class="basicManListBtn">
+                                        <div class="basicManListBOX">
+                                            <a href="javascript:;" class="glyphicon glyphicon-edit"></a>
+                                            <a href="javascript:;" class="glyphicon glyphicon-trash" style="margin-left: 20px"></a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        中融
+                                    </td>
+                                    <td>
+                                        停用
+                                    </td>
+                                    <td class="basicManListBtn">
+                                        <div class="basicManListBOX">
+                                            <a href="javascript:;" class="glyphicon glyphicon-edit"></a>
+                                            <a href="javascript:;" class="glyphicon glyphicon-trash" style="margin-left: 20px"></a>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹窗-->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title text-center" id="myModalLabel">保险中介公司</h3>
+            </div>
+            <div class="modal-body">
+                <!--添加渠道-->
+                <div class="addbasicMan">
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            保险中介公司名称：
+                        </p>
+                        <p class="pull-left">
+                            <input type="text" class="basicManInput">
+                        </p>
+                    </div>
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            所属上级：
+                        </p>
+                        <p class="pull-left">
+                            <select name=""  class="basicManSelect">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            状态：
+                        </p>
+                        <p class="pull-left">
+                            <select name=""  class="basicManSelect">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <!--添加保险公司-->
+                <div class="addBoxiangongsi">
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            保险公司名称:
+                        </p>
+                        <p class="pull-left">
+                            <input type="text" class="basicManInput">
+                        </p>
+                    </div>
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            所属上级：
+                        </p>
+                        <p class="pull-left">
+                            <select name=""  class="basicManSelect">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="after orderDelesCont">
+                        <p class="pull-left">
+                            状态：
+                        </p>
+                        <p class="pull-left">
+                            <select name=""  class="basicManSelect">
+                                <option value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+                <!--删除-->
+                <div class="delectList">
+                    <p class="delectListP">
+                        您确定要删除中融保险公司么？
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footerLeft" data-dismiss="modal">
+                    取消
+                </div>
+                <div class="modal-footerRight">
+                    确定
+                </div>
+                <!--<button type="button" class="btn btn-default orderDelesBtn" data-dismiss="modal">关闭</button>-->
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public.js"></script>
+<script>
+    // 点击打开模态框
+    $(".orderListSeeBtn").on("click", function () {
+        // data-toggle="modal" data-target="#myModal"
+        $(this).attr({"data-toggle": "modal", "data-target": "#myModal"})
+    })
+</script>
+</body>
+</html>

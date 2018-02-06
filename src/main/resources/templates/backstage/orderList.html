@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单列表</title>
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="author" content="zhy"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/orderList.css"/>
+    <!--[if lte IE 9]>
+    <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="bx-header">
+    <div class="pull-left">
+        <img src="images/" alt="">
+    </div>
+    <div class=" pull-right head-nav-right soging-photes-active">
+        <div class="head-nav-userName">
+            张三
+            <i class="head-nav-icon"></i>
+        </div>
+        <div class="soging-photes-display after ">
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bx-content">
+    <!--导航手风琴-->
+    <div class="bx-mean">
+        <ul id="accordion" class="accordion">
+            <li>
+                <a class="link" href="index.html">
+                    <i class="glyphicon glyphicon-home" style="margin-top: 4px;float: left;margin-right: 14px;"></i>
+                    运营数据
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon1"></i>
+                    订单管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="orderList.html">订单列表</a></li>
+                    <li><a href="newOrder.html">新建订单</a></li>
+                    <li><a href="commissionSettlement.html">佣金结算</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="basicManagement.html">
+                    <i class="bx-icon bx-icon2"></i>
+                    渠道管理
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon3"></i>
+                    费用政策管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="junction.html">结入费用</a></li>
+                    <li><a href="bear.html">结出费用</a></li>
+                    <li><a href="spareCost.html">备用费用结出</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon4"></i>
+                客户管理
+            </div>
+                <ul class="submenu">
+                    <li><a href="customerInformation.html">客户信息列表</a></li>
+                    <li><a href="contacts.html">联系人列表</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon5"></i>
+                管理员设置
+
+            </div>
+                <ul class="submenu">
+                    <li><a href="role.html"> 角色管理</a></li>
+                    <li><a href="user.html"> 用户管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon6"></i>
+                财务结算
+            </div>
+                <ul class="submenu">
+                    <li><a href="financialSettlement.html">财务结算总览表</a></li>
+                    <li><a href="insuranceCompany.html">保险公司财务结算</a></li>
+                    <li><a href="intermediary.html">中介公司财务结算</a></li>
+                    <li><a href="member.html">会员财务结算</a></li>
+                    <li><a href="otherchannels.html">其他渠道财务结算</a></li>
+                    <li><a href="downstreamChannel.html">下游渠道财务结算</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon7"></i>
+                报表分析
+            </div>
+                <ul class="submenu">
+                    <li><a href="orderTime.html">下单时间分析报表</a></li>
+                    <li><a href="singleChannel.html">下单渠道分析报表</a></li>
+                    <li><a href="lowerArea.html">下单地区分析报表</a></li>
+                    <li><a href="bxbaobiao.html">保险公司分析报表</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="jurisdiction.html">
+                    <i class="bx-icon bx-icon5"></i>
+                    权限管理
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--视图区-->
+    <div class="bx-sideright">
+        <!--视图区导航-->
+        <div class="bx-siderightTit after">
+            <p class="orderListP">
+                订单管理
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </p>
+            <p class="orderListP">
+                订单列表
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </p>
+        </div>
+        <div class="orderCommit">
+            <div class="orderListNum">
+                订单列表(120)条
+            </div>
+            <div class="orderCont ">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">订单编号</span>
+                            <input type="text" class="form-control" name="customerUsername" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">保险公司</span>
+                            <input type="text" class="form-control" name="customerUsername" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">姓名</span>
+                            <input type="text" class="form-control" name="customerUsername" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">手机号</span>
+                            <input type="text" class="form-control" name="customerUsername" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group " style="position: relative">
+                        <div class="input-group date form_date" id="startpicker">
+                            <span class="input-group-addon">开始时间</span>
+                            <input class="form-control" style="width:110px;" id="startTime" readonly="" value=""
+                                   type="text" name="createTimeF">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group date form_date" id="endpicker">
+                            <span class="input-group-addon">结束时间</span>
+                            <input class="form-control" readonly="" value="" id="endTime" type="text"
+                                   style="width:110px;" name="createTimeT">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">身份证</span>
+                            <input type="text" class="form-control" name="customerUsername" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn orderListBtn">搜索</button>
+                    </div>
+                </div>
+                <div class="after orderListBtnBox">
+                    <a href="javascript:;" class="orderListBtnNew">
+                        新建订单
+                    </a>
+                    <!--<a href="javascript:;" class="orderListBtnDc">-->
+                    <!--导出所有订单-->
+                    <!--</a>-->
+                    <div class="btn-group ">
+                        <a type="button" class="btn  orderListBtnDc" onclick="exportAllOrder()">
+                            导出所有订单
+                        </a>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" onclick="exportCheckOrder()">导出选中</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="listOrderContainer">
+                    <div class="table_tabs" id="order_tabs">
+                        <ul class="flagli">
+                            <li class="active">
+                                <a href="javascript:;" data-type="1">全部订单</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" data-type="2">待核保</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" data-type="3">审核保待费</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" data-type="4">确认未收款</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" data-type="5">已确认未收款</a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" data-type="6">已确认已收款</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <table class="table order_table">
+                        <thead>
+                        <tr>
+                            <th style="text-align: left"><input type="checkbox" onclick="allunchecked(this,'orderId');">
+                            </th>
+                            <th>保险</th>
+                            <th class="text-center">费用总价（元）</th>
+                            <th class="text-center" width="140px;">投保人信息</th>
+                            <th class="text-center w100">下单时间</th>
+                            <th class="text-center">订单状态</th>
+                            <th class="text-center">实付金额（元）</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="order_head data1 status">
+                            <td colspan="8">
+                                <div class="checkbox">
+                                    <label style="display: block">
+                                        <input type="checkbox" class="order_select" name="orderId" value="4461">
+                                        订单号：1711131550164180
+                                    </label>
+                                </div>
+                                <div class="btns" style="top:20px;">
+                                    <a href="javascript:;" class="orderListSeeBtn ">查看详情</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="data1 status">
+                            <td colspan="2">
+                                <div class="mini_goods" style="text-align:left;">
+
+                                    <p>中介公司：中融</p>
+
+                                    <p>
+                                        保险公司：华安保险
+                                    </p>
+
+                                </div>
+                            </td>
+                            <td align="center">
+                                <p>5598.00</p>
+                            </td>
+                            <td align="center">
+                                <p>
+                                    姓名: 王五</p>
+
+                                <p>13612345678</p>
+                            </td>
+                            <td>
+                                2017-11-13 15:50
+                            </td>
+                            <td align="center">
+                                待核保
+                            </td>
+                            <td align="center">5598.00</td>
+                            <td align="center">
+                                <a href="javascript:;">修改</a>
+                                <a href="javascript:;">撤单</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="account_pagingBox">
+                        <div class="account_paging">
+                            <span class="account_pagingFont account_pageTotal">共条</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageHome">首页</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageUpper">上一页</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageFirst">第页</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageNext">下一页</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageShadowe">尾页</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageCount">共页</span>
+                            <span class="account_pagingLine">|</span>
+                            <span class="account_pagingFont account_pageJump">跳转至</span>
+                            <input type="text" maxlength="3" class="account_pagingInput"/>
+                            <span class="account_pagBtn">Go</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h3 class="modal-title text-center" id="myModalLabel">订单详情</h3>
+            </div>
+            <div class="modal-body">
+                <!--订单概况-->
+                <p class="orderDelesTit">
+                    订单概况
+                </p>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        订单编号：2014121141214124121
+                    </p>
+                    <p class="pull-right">
+                        订单状态：已确认已收款
+                    </p>
+                </div>
+                <!--投保主体-->
+                <p class="orderDelesTit">
+                    投保主体
+                </p>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        行政区域编码：02301214
+                    </p>
+                    <p class="pull-right">
+                        商业险保险起期：2017-05-06 08：05：56
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        商业险保险止期：2017-05-06 08：05：56
+                    </p>
+                    <p class="pull-right">
+                        交强险保险起期：2017-05-06 08：05：56
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        交强险保险止期：2017-05-06 08：05：56
+                    </p>
+                    <p class="pull-right">
+                        投保人姓名：小敏
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        投保人证件类型：身份证
+                    </p>
+                    <p class="pull-right">
+                        投保人证件号码：3512440244112214114
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        投保人联系人电话：15212123111
+                    </p>
+                    <p class="pull-right">
+                        被保险人姓名：李晓二
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        被保人证件类型：身份证
+                    </p>
+                    <p class="pull-right">
+                        被保人证件号码：254124512144114
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        被保险人电话：12514574841
+                    </p>
+                    <p class="pull-right">
+                        交强险投保单号：22514451144115211
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        商业险投保单号：12541255111224
+                    </p>
+                </div>
+                <!--车辆信息-->
+                <p class="orderDelesTit">
+                    车辆信息
+                </p>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        车牌号码：川A85124
+                    </p>
+                    <p class="pull-right">
+                        发动机号：5120932
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        车架号/VIN码：LFV2A21K473076632
+                    </p>
+                    <p class="pull-right">
+                        厂牌车型代码：02151210
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        初次登记日期：2017-02-03
+                    </p>
+                    <p class="pull-right">
+                        转移登记日期：2017-05-06 08：05：06
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        过户车标志：是
+                    </p>
+                    <p class="pull-right">
+                        车主证件类型：身份证
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        行驶证车主：李晓峰
+                    </p>
+                    <p class="pull-right">
+                        新车购置价：￥25121.00
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        是否计算车船税：是
+                    </p>
+
+                </div>
+                <!--险别类型-->
+                <p class="orderDelesTit">
+                    险别类型
+                </p>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        险种序号：0802121
+                    </p>
+                    <p class="pull-right">
+                        险种代码：0212141
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        保险金额/赔偿限额(元）：25412.00
+                    </p>
+                    <p class="pull-right">
+                        不计免赔：是
+                    </p>
+                </div>
+                <!-- 保险中介公司-->
+                <p class="orderDelesTit">
+
+                </p>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        保险中介公司名称：中融
+                    </p>
+                    <p class="pull-right">
+                        保险公司名称：平安车险
+                    </p>
+                </div>
+                <div class="after orderDelesCont">
+                    <p class="pull-left">
+                        下单时间：2017-05-08 09：08：05
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default orderDelesBtn" data-dismiss="modal">关闭</button>
+                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $(function () {
+        // 点击打开模态框
+        $(".orderListSeeBtn").on("click", function () {
+            // data-toggle="modal" data-target="#myModal"
+            $(this).attr({"data-toggle": "modal", "data-target": "#myModal"})
+        })
+        /* 下面是表单里面的日期时间选择相关的 */
+        $('.form_datetime').datetimepicker({
+            format: 'yyyy-mm-dd hh:ii:00:00',
+            weekStart: 1,
+            autoclose: true,
+            language: 'zh-CN',
+            pickerPosition: 'bottom-left',
+            todayBtn: true,
+            viewSelect: 'hour'
+        });
+        $('.form_date').datetimepicker({
+            format: 'yyyy-mm-dd',
+            weekStart: 1,
+            autoclose: true,
+            language: 'zh-CN',
+            pickerPosition: 'bottom-left',
+            minView: 2,
+            todayBtn: true
+        });
+        /* 下面是表单里面的日期时间选择相关的 END */
+
+
+        /*下面是时间选择器开始时间不能大于结束时间设置  START*/
+        var startTime = $("#startTime").val();
+        var endTime = $("#endTime").val();
+        $('#endpicker').datetimepicker('setStartDate', startTime);
+        $('#startpicker').datetimepicker('setEndDate', endTime);
+        $('#endpicker')
+            .datetimepicker()
+            .on('show', function (ev) {
+                startTime = $("#startTime").val();
+                endTime = $("#endTime").val();
+                $('#endpicker').datetimepicker('setStartDate', startTime);
+                $('#startpicker').datetimepicker('setEndDate', endTime);
+            });
+        $('#startpicker')
+            .datetimepicker()
+            .on('show', function (ev) {
+                endTime = $("#endTime").val();
+                startTime = $("#startTime").val();
+                $('#startpicker').datetimepicker('setEndDate', endTime);
+                $('#endpicker').datetimepicker('setStartDate', startTime);
+            });
+    });
+    /*下面是时间选择器开始时间不能大于结束时间设置  END*/
+</script>
+</body>
+</html>

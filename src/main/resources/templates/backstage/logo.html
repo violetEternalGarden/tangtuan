@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="author" content="zhy" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <script src="./js/jquery.min.js"></script>
+    <!--[if lte IE 9]>
+    <script src="./js/respond.min.js"></script>
+    <script src="./js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="page">
+    <img src="./images/login-back.jpg" alt=""/>
+    <div class="login-box after">
+        <div class="inner-box">
+            <form action="../admin/ifLogin" method="post" id="loginForm">
+                <p class="login-p1 text-center">
+                    登录
+                </p>
+                <div class="number-box after">
+                    <div class="number-img text-center">
+                        <img src="./images/number-icon.png" alt=""/>
+                    </div>
+                    <div class="number-input">
+                        <input type="text" class="number" name="adminName" placeholder="请输入手机号"/>
+                    </div>
+                </div>
+                <div class="number-box after">
+                    <div class="number-img text-center">
+                        <img src="./images/password-icon.png" alt=""/>
+                    </div>
+                    <div class="number-input">
+                        <input type="password" class="number" name="adminPass" placeholder="请输入密码"/>
+                    </div>
+                </div>
+                <div class="login-btn">
+                    登录
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div><button type="button" hidden class="alertBtn" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="mySmallModalLabel">提示框</h4>
+            </div>
+            <div class="modal-body modalAlert">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/bootstrap.min.js"></script>
+<!--<script src="js/public.js"></script>-->
+<script src="./js/publicFun.js"></script>
+<script src="./js/login.js"></script>
+</body>
+</html>

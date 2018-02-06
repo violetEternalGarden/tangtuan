@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择支付方式</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta name="author" content="zhy"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/newOrder.css"/>
+    <!--[if lte IE 9]>
+    <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <style>
+        .newOrderP {
+            width: 140px;
+            line-height: 36px;
+        }
+    </style>
+</head>
+<body>
+<div class="bx-header">
+    <div class="pull-left">
+        <img src="images/" alt="">
+    </div>
+    <div class=" pull-right head-nav-right soging-photes-active">
+        <div class="head-nav-userName">
+            张三
+            <i class="head-nav-icon"></i>
+        </div>
+        <div class="soging-photes-display after ">
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+            <a href="javascript:;" class="after">
+                张三李四王麻子
+            </a>
+        </div>
+    </div>
+</div>
+<div class="bx-content">
+    <!--导航手风琴-->
+    <div class="bx-mean">
+        <ul id="accordion" class="accordion">
+            <li>
+                <a class="link" href="index.html">
+                    <i class="glyphicon glyphicon-home" style="margin-top: 4px;float: left;margin-right: 14px;"></i>
+                    运营数据
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon1"></i>
+                    订单管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="orderList.html">订单列表</a></li>
+                    <li><a href="newOrder.html">新建订单</a></li>
+                    <li><a href="commissionSettlement.html">佣金结算</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="basicManagement.html">
+                    <i class="bx-icon bx-icon2"></i>
+                    渠道管理
+                </a>
+            </li>
+            <li>
+                <div class="link">
+                    <i class="bx-icon bx-icon3"></i>
+                    费用政策管理
+                </div>
+                <ul class="submenu">
+                    <li><a href="junction.html">结入费用</a></li>
+                    <li><a href="bear.html">结出费用</a></li>
+                    <li><a href="spareCost.html">备用费用结出</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon4"></i>
+                客户管理
+            </div>
+                <ul class="submenu">
+                    <li><a href="customerInformation.html">客户信息列表</a></li>
+                    <li><a href="contacts.html">联系人列表</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon5"></i>
+                管理员设置
+
+            </div>
+                <ul class="submenu">
+                    <li><a href="role.html"> 角色管理</a></li>
+                    <li><a href="user.html"> 用户管理</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon6"></i>
+                财务结算
+            </div>
+                <ul class="submenu">
+                    <li><a href="financialSettlement.html">财务结算总览表</a></li>
+                    <li><a href="insuranceCompany.html">保险公司财务结算</a></li>
+                    <li><a href="intermediary.html">中介公司财务结算</a></li>
+                    <li><a href="member.html">会员财务结算</a></li>
+                    <li><a href="otherchannels.html">其他渠道财务结算</a></li>
+                    <li><a href="downstreamChannel.html">下游渠道财务结算</a></li>
+                </ul>
+            </li>
+            <li><div class="link">
+                <i class="bx-icon bx-icon7"></i>
+                报表分析
+            </div>
+                <ul class="submenu">
+                    <li><a href="orderTime.html">下单时间分析报表</a></li>
+                    <li><a href="singleChannel.html">下单渠道分析报表</a></li>
+                    <li><a href="lowerArea.html">下单地区分析报表</a></li>
+                    <li><a href="bxbaobiao.html">保险公司分析报表</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="link" href="jurisdiction.html">
+                    <i class="bx-icon bx-icon5"></i>
+                    权限管理
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--视图区-->
+    <div class="bx-sideright">
+        <!--视图区导航-->
+        <div class="bx-siderightTit after">
+            <p class="orderListP">
+                订单管理
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </p>
+            <p class="orderListP">
+                新建订单
+            </p>
+        </div>
+        <div class="orderCommit">
+            <div class="orderListNum">
+                新建订单
+            </div>
+            <div class="newOrderCont ">
+                <div class="newOrderTit">
+                    选择支付方式
+                </div>
+                <!--车主信息-->
+                <div class="newOrderContTit">
+                    支付信息
+                </div>
+                <div class="row newOrderControw">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class=" newOrder2-P">
+                            支付申请号：46CPIC130309400550
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class="newOrder2-P">
+                            商户号：000000000000001
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class="newOrder2-P">
+                            投保单：WX5051903802015000005
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class="newOrder2-P">
+                            本单金额（元）：301340
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class="newOrder2-P">
+                            投保人名称：李宁宁
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class="newOrder2-P">
+                            起保（生效）日期：20151028000000
+                        </p>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <p class="newOrder2-P">
+                            行政区域代码：450127
+                        </p>
+                    </div>
+                </div>
+                <!--车主信息-->
+                <div class="newOrderContTit">
+                    选择支付方式
+                </div>
+                <div class="newPayContBox">
+                    <div class="newPayCont">
+                        
+                        <input type="checkbox">
+                        <img src="images/weiinPc.png" alt="">
+                    </div>
+                    <div class="newPayCont">
+
+                        <input type="checkbox">
+                        <img src="images/yinlaiaoPc.png" alt="">
+                    </div>
+                    <div class="newPayCont">
+
+                        <input type="checkbox">
+                        <img src="images/zhifubaoweiinPc.png" alt="">
+                    </div>
+                </div>
+                <div class="newComputerBtnBox newComputerBtns">
+                    <p class="newComputerBtnPrev" style="margin: auto 80px auto auto">
+                        上一步
+                    </p>
+                    <p class="newComputerBtn" style="margin: auto auto auto 0 ">
+                        去支付
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/public.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车拇指后台管理</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="author" content="zhy" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <!--[if lte IE 9]>
+    <script src="js/respond.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="bx-header">
+        <div class="pull-left">
+            <img src="images/" alt="">
+        </div>
+        <div class=" pull-right head-nav-right soging-photes-active" >
+            <div class="head-nav-userName" >
+                张三
+                <i class="head-nav-icon"></i>
+            </div>
+            <div class="soging-photes-display after ">
+                <a href="javascript:;" class="after">
+                    张三李四王麻子
+                </a>
+                <a href="javascript:;" class="after">
+                    张三李四王麻子
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="bx-content">
+        <!--导航手风琴-->
+        <div class="bx-mean">
+            <ul id="accordion" class="accordion">
+                <li>
+                    <a class="link" href="index.html">
+                        <i class="glyphicon glyphicon-home" style="margin-top: 4px;float: left;margin-right: 14px;"></i>
+                        运营数据
+                    </a>
+                </li>
+                <li>
+                    <div class="link">
+                        <i class="bx-icon bx-icon1"></i>
+                        订单管理
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="orderList.html">订单列表</a></li>
+                        <li><a href="newOrder.html">新建订单</a></li>
+                        <li><a href="commissionSettlement.html">佣金结算</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="link" href="basicManagement.html">
+                        <i class="bx-icon bx-icon2"></i>
+                        渠道管理
+                    </a>
+                </li>
+                <li>
+                    <div class="link">
+                        <i class="bx-icon bx-icon3"></i>
+                        费用政策管理
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="junction.html">结入费用</a></li>
+                        <li><a href="bear.html">结出费用</a></li>
+                        <li><a href="spareCost.html">备用费用结出</a></li>
+                    </ul>
+                </li>
+                <li><div class="link">
+                    <i class="bx-icon bx-icon4"></i>
+
+
+                    客户管理
+                </div>
+                    <ul class="submenu">
+                        <li><a href="customerInformation.html">客户信息列表</a></li>
+                        <li><a href="contacts.html">联系人列表</a></li>
+                        <li><a href="insuranceCompanyList.html">保险公司列表</a></li>
+                        <li><a href="intermediaryList.html">中介公司列表</a></li>
+                        <li><a href="otherchannelsList.html">渠道列表</a></li>
+                    </ul>
+                </li>
+                <li><div class="link">
+                    <i class="bx-icon bx-icon5"></i>
+                    管理员设置
+
+                </div>
+                    <ul class="submenu">
+                        <li><a href="role.html"> 角色管理</a></li>
+                        <li><a href="user.html"> 用户管理</a></li>
+                    </ul>
+                </li>
+                <li><div class="link">
+                    <i class="bx-icon bx-icon6"></i>
+                    财务结算
+                </div>
+                    <ul class="submenu">
+                        <li><a href="financialSettlement.html">财务结算总览表</a></li>
+                        <li><a href="insuranceCompany.html">保险公司财务结算</a></li>
+                        <li><a href="intermediary.html">中介公司财务结算</a></li>
+                        <li><a href="member.html">会员财务结算</a></li>
+                        <li><a href="otherchannels.html">其他渠道财务结算</a></li>
+                        <li><a href="downstreamChannel.html">下游渠道财务结算</a></li>
+                    </ul>
+                </li>
+                <li><div class="link">
+                    <i class="bx-icon bx-icon7"></i>
+                    报表分析
+                </div>
+                    <ul class="submenu">
+                        <li><a href="orderTime.html">下单时间分析报表</a></li>
+                        <li><a href="singleChannel.html">下单渠道分析报表</a></li>
+                        <li><a href="lowerArea.html">下单地区分析报表</a></li>
+                        <li><a href="bxbaobiao.html">保险公司分析报表</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="link" href="jurisdiction.html">
+                        <i class="bx-icon bx-icon5"></i>
+                        权限管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--视图区-->
+        <div class="bx-sideright">
+            <!--运营数据-->
+            <div class="operationalDataBox ">
+                <div class="operationalDataTit after">
+                    <div class="pull-left operationalDataTitL">
+                        <p class="pull-left bx-icon bx-icon8"></p>
+                        <p class="pull-left operationalDataTitLP2">运营数据</p>
+                    </div>
+                    <ul class="pull-right operationalDataTimeBox">
+                        <li class="operationalData-active">
+                            <p>
+                                今日
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                昨日
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                本周
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                上周
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                自定义
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="operationalDataCont">
+                    <ul class="row">
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1 ">
+                                佣金总额（元）
+                            </p>
+                            <p class="operationalDataP2 ">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1 ">
+                                今日交易额（元）
+                            </p>
+                            <p class="operationalDataP2 ">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1">
+                                申请退保额（元）
+                            </p>
+                            <p class="operationalDataP2">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1">
+                                订单（笔）
+                            </p>
+                            <p class="operationalDataP2">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1">
+                                付款数（笔）
+                            </p>
+                            <p class="operationalDataP2">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1">
+                                申请退保数(笔)
+                            </p>
+                            <p class="operationalDataP2">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3 ">
+                            <p class="operationalDataP1 ">
+                                结入佣金（元）
+                            </p>
+                            <p class="operationalDataP2 ">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1">
+                                转化率（元）
+                            </p>
+                            <p class="operationalDataP2">
+                                20000.00
+                            </p>
+                        </li>
+                        <li class="col-lg-4 col-md-2 col-sm-4 col-xs-3">
+                            <p class="operationalDataP1">
+                                退保率（元）
+                            </p>
+                            <p class="operationalDataP2">
+                                20000.00
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--统计图-->
+            <div class="operationalDataBox statisticalChartBox after">
+                <div class="operationalDataTit after" style="padding-left: 20px">
+                    <ul class="pull-left operationalDataTitL statisticalChartTL">
+                        <li class="operationalData-active">
+                            <p class="pull-left bx-icon bx-icon9"></p>
+                            <p class="pull-left operationalDataTitLP2">订单统计</p>
+                        </li>
+                        <li>
+                            <p class="pull-left bx-icon bx-icon10"></p>
+                            <p class="pull-left operationalDataTitLP2">付款订单统计</p>
+                        </li>
+                        <li>
+                            <p class="pull-left bx-icon bx-icon11"></p>
+                            <p class="pull-left operationalDataTitLP2">退保订单统计</p>
+                        </li>
+                    </ul>
+                    <ul class="pull-right operationalDataTimeBox">
+                        <li class="operationalData-active">
+                            <p>
+                                本周
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                上周
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                本月
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                上月
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chart after" id="chart">
+                    <canvas id="myChart"  class="canvas7"  width="1000" height="350"></canvas>
+                </div>
+            </div>
+
+            <!--招生分析报表-->
+            <div class="operationalDataBox statisticalChartBox after">
+                <div class="operationalDataTit after" style="padding-left: 20px">
+                    <ul class="pull-left operationalDataTitL statisticalChartTL">
+                        <li class="operationalData-active">
+                            <p class="pull-left bx-icon bx-icon12"></p>
+                            <p class="pull-left operationalDataTitLP2">保险中介销量</p>
+                        </li>
+                        <li>
+                            <p class="pull-left bx-icon bx-icon13"></p>
+                            <p class="pull-left operationalDataTitLP2">保险中介退保量</p>
+                        </li>
+                        <li>
+                            <p class="pull-left bx-icon bx-icon14"></p>
+                            <p class="pull-left operationalDataTitLP2">保险公司销量</p>
+                        </li>
+                        <li>
+                            <p class="pull-left bx-icon bx-icon15"></p>
+                            <p class="pull-left operationalDataTitLP2">保险公司退保量</p>
+                        </li>
+                    </ul>
+                    <ul class="pull-right operationalDataTimeBox">
+                        <li class="operationalData-active">
+                            <p>
+                                本周
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                本月
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bx-table after">
+                    <table class="table table-bordered" style="border: none;">
+                        <thead>
+                        <tr>
+                            <th>保险中介公司</th>
+                            <th>签约保险公司</th>
+                            <th>销量（笔）</th>
+                            <th>销售额（元）</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+            <!--招生分析报表-->
+            <div class="operationalDataBox statisticalChartBox after">
+                <div class="operationalDataTit after" style="padding-left: 20px">
+                    <ul class="pull-left operationalDataTitL statisticalChartTL">
+                        <li class="operationalData-active">
+                            <p class="pull-left operationalDataTitLP2">代理省份销售数据</p>
+                        </li>
+                        <li>
+                            <p class="pull-left operationalDataTitLP2">代理市级销售数据</p>
+                        </li>
+                        <li>
+                            <p class="pull-left operationalDataTitLP2">代理区/县销售数据</p>
+                        </li>
+                    </ul>
+                    <ul class="pull-right operationalDataTimeBox">
+                        <li class="operationalData-active">
+                            <p>
+                                本周
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                本月
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bx-table after">
+                    <table class="table table-bordered" style="border: none;">
+                        <thead>
+                        <tr>
+                            <th>保险中介公司</th>
+                            <th>签约保险公司</th>
+                            <th>销量（笔）</th>
+                            <th>销售额（元）</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                中融
+                            </td>
+                            <td>
+                                平安车险、人保车险、华泰车险、庆华车险
+                            </td>
+                            <td>
+                                100
+                            </td>
+                            <td>
+                                1313
+                            </td>
+                        </tr>
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Chart-1.0.1-beta.4.js"></script>
+    <script src="js/publicFun.js"></script>
+    <script src="js/public.js"></script>
+
+    <script>
+        chart()
+        function chart() {
+            //同样数据参数设置
+            var data = {
+                //折线图需要为每个数据点设置一标签。这是显示在X轴上。
+                labels: ["12/01", "12/02", "12/03", "12/04", "12/05", "12/06", "12/07"],
+                //这边的thisId分别对应labels的id
+//            thisIds : [12,22,50,44,99,3,67],
+                //数据集（y轴数据范围随数据集合中的data中的最大或最小数据而动态改变的）
+                datasets: [{
+                    fillColor: "rgba(22,22,22,0.5)", //背景填充色
+                    strokeColor: "rgba(220,220,220,1)", //路径颜色
+                    pointColor: "rgba(220,220,220,1)", //数据点颜色
+                    pointStrokeColor: "#fff", //数据点边框颜色
+                    data: [10, 59, 20, 81, 56, 55, 40] //对象数据
+                }, {
+                    fillColor: "rgba(151,187,205,0.5)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    data: [28, 48, 40, 19, 10, 27, 20]
+                }]
+            };
+            window.onload = function() {
+                var ctx = document.getElementById("myChart").getContext("2d");;
+                //方式二：传入对象字面量去修改默认图标参数，自定义图表
+                var MyNewChart = new Chart(ctx).Line(data, {
+                    // 网格颜色
+                    scaleGridLineColor: "rgba(255,0,0,1)",
+                    // Y/X轴的颜色
+                    scaleLineColor: "rgba(0,0,0,.1)",
+                    // 文字大小
+                    scaleFontSize: 16,
+                    // 文字颜色
+                    scaleFontColor: "#666",
+                    // 网格颜色
+                    scaleGridLineColor: "rgba(0,0,0,.05)",
+                    // 是否使用贝塞尔曲线? 即:线条是否弯曲
+                    // 是否执行动画
+                    animation: true,
+                    // 动画的时间
+                    animationSteps: 60,
+                    // 动画完成时的执行函数
+                    onAnimationComplete: function(){
+//                    console.log("给x轴的lable对应的id：");
+//                    console.log(data.thisIds);
+                    }
+                });
+            }
+        }
+
+        console.log(getCookie("basePath"))
+
+
+    </script>
+</body>
+</html>
